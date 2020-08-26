@@ -1,0 +1,28 @@
+@import "global.less";
+
+// mock style
+main {
+	max-width: @max-width;
+	font-family: sans-serif;
+	border-style: dashed;
+	h1 {
+		i {
+			margin-left: 0.5rem;
+		}
+	}
+	div.btn {
+		margin: 40px 0 50px;
+		a {
+			text-decoration: none;
+			color: @secondary;
+			background-color: @papiro1;
+			padding: 10px;
+			border: 1px solid @secondary;
+			border-radius: 15px;
+			&:hover {
+				color: @ternary;
+				background-color: @papiro2;
+			}
+		}
+	}
+}

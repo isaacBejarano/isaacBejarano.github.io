@@ -1,0 +1,155 @@
+@import "global.less";
+
+/* CUSTOM STYLE */
+html {
+	font-size: 12px;
+	@media (min-width: 576px) {
+		font-size: initial;
+	}
+
+	body {
+		min-width: 320px;
+		font-family: sans-serif;
+
+		// header
+		header {
+			min-height: 2.5rem;
+			#logo_papiro {
+				height: 2rem;
+			}
+			header #idioma {
+				z-index: 1021 !important;
+			}
+			#logo_laie {
+				height: 1.8rem;
+				&:hover {
+					background-color: lighten(@secondary, 5%);
+				}
+			}
+		}
+
+		// navbar
+		#main-nav {
+			margin-top: 2.5rem;
+			z-index: 1020 !important;
+		}
+
+		// wrapper
+		#wrapper {
+			margin-top: 6.5rem;
+			@media (min-width: 991px) {
+				margin-top: 6.9rem;
+			}
+
+			// -> frontpage
+			.carousel-caption h2 {
+				font-size: 3rem;
+				font-weight: bolder;
+				text-shadow: 0 0 5px black;
+			}
+			.carousel-caption p {
+				font-size: 1.5rem;
+				font-weight: lighter;
+			}
+			// -> bibliolists/amistades h1
+			.section-title {
+				font-size: 1.5rem !important;
+			}
+			// -> bibliolists/amistades li a
+			.list-group-item:hover {
+				cursor: pointer;
+				* {
+					text-decoration: none;
+					color: @papiro2;
+				}
+			}
+			#friends ul {
+				max-height: 50rem;
+				overflow-y: scroll;
+				/* width */
+				&::-webkit-scrollbar {
+					width: 10px;
+				}
+				/* Track */
+				&::-webkit-scrollbar-track {
+					box-shadow: inset 0 0 5px grey;
+					border-radius: 10px;
+				}
+				&::-webkit-scrollbar-track-piece {
+					box-shadow: inset 1px 0 1px @ternary;
+					border-radius: 10px;
+				}
+				/* Handle */
+				&::-webkit-scrollbar-thumb {
+					background: @ternary;
+					border-radius: 10px;
+				}
+				/* Handle on hover */
+				&::-webkit-scrollbar-thumb:hover {
+					background: darken(@ternary, 5%);
+				}
+				/* friends cards */
+				.card-title {
+					font-size: 1.1rem;
+				}
+				.card-text {
+					font-size: 0.8rem;
+				}
+			}
+		}
+
+		// footer
+		footer {
+			ul[class^="col"] {
+				li {
+					margin: 0.3rem 0;
+					a {
+						&:hover {
+							color: @ternary !important;
+						}
+					}
+				}
+			}
+			// --> net links
+			#footer_logo_laie {
+				height: 3rem;
+				&:hover {
+					background-color: lighten(@secondary, 5%);
+				}
+			}
+			// --> copyright
+			#license {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}
+
+/* dynamic classes - JS */
+.loged {
+	display: block !important;
+}
+.title-small {
+	font-size: 2.3rem !important;
+}
+[class*="carousel-item"] .carousel-caption:hover,
+[class*="carousel-item"] img:hover {
+	cursor: pointer;
+	opacity: 0.7;
+	mix-blend-mode: luminosity;
+}
+
+/* tweak --> xs button can inline flex */
+[aria-label="Search"] {
+	max-width: 14rem !important;
+}
+
+[class*="tooltip"] {
+	font-size: 1rem;
+	p {
+		margin: auto;
+		span {
+			display: block;
+		}
+	}
+}

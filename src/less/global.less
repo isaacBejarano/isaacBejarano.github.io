@@ -1,0 +1,71 @@
+/*  CORPORATIVE COLORS */
+@primary: #fff;
+@secondary: #002343;
+@ternary: #5771a2;
+@papiro1: wheat;
+@papiro2: beige;
+@papiro3: peru;
+@max-width: 768px;
+
+// color B4-classes override
+.text-primary {
+	color: @primary !important;
+}
+.text-secondary {
+	color: @secondary !important;
+}
+.bg-primary {
+	background-color: @primary !important;
+}
+.bg-secondary {
+	background-color: @secondary !important;
+}
+.border-secondary {
+	border-color: @secondary !important;
+}
+
+/* color custom-classes */
+.border-ternary {
+	border-color: @ternary !important;
+}
+.bg-ternary {
+	background-color: @ternary;
+}
+.bg-papiro1 {
+	background-color: @papiro1;
+}
+.bg-papiro2 {
+	background-color: @papiro2;
+}
+.bg-papiro2-grad {
+	background-image: linear-gradient(to bottom, @papiro1, @papiro3);
+}
+.bg-secondary-grad {
+	background-image: linear-gradient(to top, @secondary, darken(@ternary, 25%));
+}
+.bg-secondary-grad-reverse {
+	background-image: linear-gradient(
+		to bottom,
+		@secondary,
+		darken(@ternary, 25%)
+	);
+}
+.bg-secondary-dark-grad {
+	background-image: linear-gradient(
+		to bottom,
+		@secondary,
+		darken(@secondary, 2%)
+	);
+}
+.bg-ternary-grad {
+	background-image: linear-gradient(to bottom, @ternary, darken(@ternary, 10%));
+}
+.text-ternary {
+	color: @ternary;
+}
+.text-papiro1 {
+	color: @papiro1;
+}
+.text-papiro2 {
+	color: beige;
+}

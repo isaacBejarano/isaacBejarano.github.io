@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Papiro</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="../img/favicon.png" type="image/png" />
+
+		<!-- Bootstrap CSS. Make sure it is v.4.4^ / .container-{breakpoint}  -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Font Awesome - icons -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+			integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+			crossorigin="anonymous"
+		/>
+
+		<!-- custom style -->
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/details.css" />
+	</head>
+
+	<body class="bg-papiro1">
+		<!-- HEADER -->
+		<header class="container-fluid bg-secondary fixed-top">
+			<div class="row">
+				<!-- Logo -->
+				<div class="col-4 d-flex align-items-center">
+					<img
+						id="logo_papiro"
+						src="../img/papiroAlfa.png"
+						alt="logo aplicación Papiro"
+					/>
+				</div>
+
+				<!-- Links -->
+				<nav class="col d-flex justify-content-end align-items-center">
+					<!-- 1.Ayuda -->
+					<a
+						class="mr-2 mr-md-3 font-weight-lighter text-light"
+						href="../html/mock.html"
+					>
+						ayuda
+					</a>
+
+					<!-- 2.Idioma -->
+					<div id="idioma" class="mr-2 mr-md-3 dropdown show">
+						<a
+							class="btn dropdown-toggle font-weight-lighter text-light"
+							href="#"
+							role="button"
+							id="dropdownLanguages"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							idiomas
+						</a>
+						<div
+							class="dropdown-menu bg-ternary-grad"
+							aria-labelledby="dropdownLanguages"
+						>
+							<a class="dropdown-item" href="#">ESP</a>
+							<a class="dropdown-item" href="../lang/cat/mock.html">CAT</a>
+							<a class="dropdown-item" href="../lang/eng/mock.html">ENG</a>
+						</div>
+					</div>
+
+					<!-- 3.Laie -->
+					<a
+						class="gotobookshop"
+						href="https://www.laie.es/es/"
+						target="_blank"
+					>
+						<img
+							id="logo_laie"
+							src="../img/laie.svg"
+							alt="logo librería Laie"
+						/>
+					</a>
+				</nav>
+			</div>
+		</header>
+
+		<!-- NAVBAR -->
+		<nav
+			id="main-nav"
+			class="pb-3 navbar navbar-expand-lg navbar-dark fixed-top border-bottom border-ternary pb-2 bg-secondary-grad-reverse"
+		>
+			<!-- hamburger -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarTogglerPapiro"
+				aria-controls="navbarTogglerPapiro"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- collapsable -->
+			<div
+				class="collapse navbar-collapse border-ternary"
+				id="navbarTogglerPapiro"
+			>
+				<!-- navbar 1 -->
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item active">
+						<a class="nav-link" href="../../index.html">
+							<i class="fas fa-home"></i>
+							<!-- <span class="sr-only">(current)</span> -->
+						</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle text-light"
+							href="#"
+							id="navbarDropdownSections"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							secciones
+						</a>
+						<div
+							class="dropdown-menu bg-ternary-grad"
+							aria-labelledby="navbarDropdownSections"
+						>
+							<a class="dropdown-item" href="../html/mock.html">Novedades</a>
+							<a class="dropdown-item" href="../html/mock.html">Crítica</a>
+							<a class="dropdown-item" href="../html/mock.html">
+								Lo más leído
+							</a>
+							<a class="dropdown-item" href="../html/mock.html">
+								Recomendado
+							</a>
+							<a class="dropdown-item" href="../html/mock.html">Mixes</a>
+							<!-- <div class="dropdown-divider"></div> -->
+						</div>
+					</li>
+				</ul>
+
+				<!-- navbar 2 -->
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<!-- login -->
+					<li id="login" class="nav-item">
+						<a class="nav-link" href="login.html">
+							<button type="button" class="btn btn-outline-light btn-sm">
+								<i class="fas fa-sign-in-alt px-1"></i>
+								Abrir
+								<span>/</span>
+								<i class="fas fa-sign-out-alt px-1"></i>
+								Cerrar Sesión
+							</button>
+						</a>
+					</li>
+
+					<!-- signin -->
+					<li id="signin" class="nav-item">
+						<a class="nav-link" href="signup.html">
+							<button type="button" class="btn btn-outline-info btn-sm">
+								<i class="fas fa-hand-point-right px-1"></i>
+								Regístrate!
+							</button>
+						</a>
+					</li>
+
+					<!-- premium -->
+					<li class="nav-item">
+						<a class="nav-link" href="mock.html">
+							<button type="button" class="btn btn-outline-warning btn-sm">
+								<i class="fas fa-award px-1"></i>
+								Hazte Premium!
+							</button>
+						</a>
+					</li>
+				</ul>
+
+				<!-- search bar -->
+				<form
+					action="javascript:void(0)"
+					method="get"
+					id="searchbar"
+					class="form-inline my-2 my-lg-0"
+					novalidate
+				>
+          <input
+          id="searchbarInput"
+						class="form-control mr-2"
+						type="search"
+						placeholder="buscar título"
+						aria-label="Search"
+						value=""
+						autofocus
+					/>
+					<div class="valid-tooltip p-0"></div>
+					<div class="invalid-tooltip">
+						<p>
+							<span>Introduce una palabra obligatoriamente</span>
+							<span>Ésta debe tener más de 3 carácteres</span>
+						</p>
+					</div>
+					<button
+						class="btn btn-outline-secondary my-2 my-sm-0 btn-sm py-2"
+						type="submit"
+					>
+						Buscar
+					</button>
+				</form>
+			</div>
+		</nav>
+
+		<!-- breadcrumb -->
+		<nav aria-label="breadcrumb" id="breadcrumb">
+			<ol
+				class="breadcrumb py-1 pl-3 m-0 border-bottom border-ternary rounded-0 text-ternary"
+			>
+				<li class="breadcrumb-item active" aria-current="page">
+					<a href="../../index.html" class="txt-danger">Inicio</a>
+				</li>
+				<li class="breadcrumb-item" aria-current="page">
+					detalles
+				</li>
+			</ol>
+		</nav>
+
+		<main class="mx-auto bg-ternary">
+			<p class="h1 pl-4 font-weight-lighter text-papiro2">
+				detalles eBook
+			</p>
+
+			<!-- outlet -->
+			<ul id="detailed" class="p-4 text-secondary"></ul>
+
+			<!-- papiro reader -->
+			<div class="reader py-5 text-center bg-secondary">
+				<a
+					class="text-secondary bg-papiro2-grad p-3 border border-secondary rounded-lg"
+					href="mock.html"
+				>
+					visualizar eBook
+				</a>
+			</div>
+
+			<!-- back home -->
+			<div class="back py-5 text-center">
+				<a
+					class="text-secondary bg-papiro1 p-2 border border-secondary rounded-lg"
+					href="../../index.html"
+				>
+					volver a Inicio
+				</a>
+			</div>
+		</main>
+
+		<!-- custom Javascript -->
+		<script src="../../data/todos.js"></script>
+		<script src="../js/ebook.details.js"></script>
+		<script src="../js/goto.laie.js"></script>
+		<script src="../js/searchbar.js"></script>
+
+		<!-- B4 => 1.jQuery, 2.Popper.js, 3.Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

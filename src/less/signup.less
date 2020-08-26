@@ -1,0 +1,47 @@
+@import "global.less";
+
+main {
+	max-width: 576px;
+}
+.input-group-text,
+.invalid-tooltip,
+.valid-tooltip {
+	font-size: 0.8rem;
+	@media (min-width: 576px) {
+		font-size: initial;
+	}
+}
+div.btn {
+	margin: 3rem auto 1rem;
+	display: block;
+}
+div.btn a {
+	text-decoration: none;
+	color: @primary;
+	background-color: @papiro3;
+	padding: 10px;
+	border: 1px solid @secondary;
+	border-radius: 15px;
+}
+div.btn a:hover {
+	color: @ternary;
+	background-color: @papiro1;
+}
+#eye1,
+#eye2 {
+	cursor: pointer;
+	span {
+		&:hover {
+			color: @secondary;
+			background-color: @primary;
+		}
+		&:active {
+			color: @papiro3;
+		}
+	}
+}
+
+// dynamic
+.hide-eye {
+	display: none;
+}

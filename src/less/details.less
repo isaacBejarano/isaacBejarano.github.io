@@ -1,0 +1,40 @@
+@import "global.less";
+
+// breadcrumb
+#breadcrumb {
+  margin-top: 6.6rem !important;
+  @media (min-width: 991px) {
+    margin-top: 6.9rem !important;
+  }
+}
+
+// main
+main {
+	max-width: @max-width;
+	padding-top: 5rem;
+	@media (min-width: 991px) {
+	}
+
+	// outlet
+	ul#detailed {
+		list-style-type: none;
+		li {
+			padding: 0.2rem 0;
+		}
+	}
+	// papiro reader
+	div.reader {
+		a {
+			font-size: 1.3rem !important;
+		}
+	}
+	// back home
+	div.back {
+		a {
+			text-decoration: none;
+			&:hover {
+				background-color: lighten(@papiro1, 10%);
+			}
+		}
+	}
+}
