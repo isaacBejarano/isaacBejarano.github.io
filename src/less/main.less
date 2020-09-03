@@ -37,7 +37,7 @@ html {
 		// wrapper
 		#wrapper {
 			margin-top: 6.5rem;
-			@media (min-width: 991px) {
+			@media (min-width: 992px) {
 				margin-top: 6.9rem;
 			}
 
@@ -64,13 +64,25 @@ html {
 				}
 			}
 			#friends ul {
-				max-height: 50rem;
+				max-height: 60rem;
 				overflow-y: scroll;
-				/* width */
 				&::-webkit-scrollbar {
-					width: 10px;
+					// xs
+					width: 0.8rem;
+					// sm
+					@media (min-width: 576px) {
+						width: 0.6rem;
+					}
+					// md -> lg
+					@media (min-width: 768px) {
+						width: 0.8rem;
+					}
+					// xl
+					@media (min-width: 1200px) {
+						width: 0.5rem;
+					}
 				}
-				/* Track */
+				// Track
 				&::-webkit-scrollbar-track {
 					box-shadow: inset 0 0 5px grey;
 					border-radius: 10px;
@@ -79,21 +91,41 @@ html {
 					box-shadow: inset 1px 0 1px @ternary;
 					border-radius: 10px;
 				}
-				/* Handle */
+				// Handle
 				&::-webkit-scrollbar-thumb {
 					background: @ternary;
 					border-radius: 10px;
 				}
-				/* Handle on hover */
+				// Handle on hover
 				&::-webkit-scrollbar-thumb:hover {
 					background: darken(@ternary, 5%);
 				}
-				/* friends cards */
+				// friends cards
 				.card-title {
 					font-size: 1.1rem;
 				}
 				.card-text {
 					font-size: 0.8rem;
+				}
+				// li width
+				li {
+          min-width: 50%;
+					// sm
+					@media (min-width: 576px) {
+						min-width: 33%;
+					}
+					// md
+					@media (min-width: 768px) {
+						min-width: 25%;
+					}
+					// lg
+					@media (min-width: 992px) {
+						min-width: 20%;
+					}
+					// xl
+					@media (min-width: 1200px) {
+						width: 100%;
+					}
 				}
 			}
 		}

@@ -86,7 +86,7 @@ html body #main-nav {
 html body #wrapper {
   margin-top: 6.5rem;
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   html body #wrapper {
     margin-top: 6.9rem;
   }
@@ -111,16 +111,26 @@ html body #wrapper .list-group-item:hover * {
   color: beige;
 }
 html body #wrapper #friends ul {
-  max-height: 50rem;
+  max-height: 60rem;
   overflow-y: scroll;
-  /* width */
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-  /* friends cards */
 }
 html body #wrapper #friends ul::-webkit-scrollbar {
-  width: 10px;
+  width: 0.8rem;
+}
+@media (min-width: 576px) {
+  html body #wrapper #friends ul::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+}
+@media (min-width: 768px) {
+  html body #wrapper #friends ul::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  html body #wrapper #friends ul::-webkit-scrollbar {
+    width: 0.5rem;
+  }
 }
 html body #wrapper #friends ul::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
@@ -142,6 +152,29 @@ html body #wrapper #friends ul .card-title {
 }
 html body #wrapper #friends ul .card-text {
   font-size: 0.8rem;
+}
+html body #wrapper #friends ul li {
+  min-width: 50%;
+}
+@media (min-width: 576px) {
+  html body #wrapper #friends ul li {
+    min-width: 33%;
+  }
+}
+@media (min-width: 768px) {
+  html body #wrapper #friends ul li {
+    min-width: 25%;
+  }
+}
+@media (min-width: 992px) {
+  html body #wrapper #friends ul li {
+    min-width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  html body #wrapper #friends ul li {
+    width: 100%;
+  }
 }
 html body footer ul[class^="col"] li {
   margin: 0.3rem 0;
