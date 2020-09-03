@@ -115,21 +115,18 @@ html body #wrapper #friends ul {
   overflow-y: scroll;
 }
 html body #wrapper #friends ul::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0;
+  height: 0.8rem;
 }
 @media (min-width: 576px) {
   html body #wrapper #friends ul::-webkit-scrollbar {
-    width: 0.6rem;
-  }
-}
-@media (min-width: 768px) {
-  html body #wrapper #friends ul::-webkit-scrollbar {
-    width: 0.8rem;
+    height: 0.6rem;
   }
 }
 @media (min-width: 1200px) {
   html body #wrapper #friends ul::-webkit-scrollbar {
     width: 0.5rem;
+    height: 0;
   }
 }
 html body #wrapper #friends ul::-webkit-scrollbar-track {
