@@ -67,19 +67,17 @@ html {
 				max-height: 60rem;
 				overflow-y: scroll;
 				&::-webkit-scrollbar {
-					// xs
-					width: 0.8rem;
-					// sm
+					// xs => slide horizontal
+					width: 0;
+					height: 0.8rem;
+					// sm -> lg
 					@media (min-width: 576px) {
-						width: 0.6rem;
+						height: 0.6rem;
 					}
-					// md -> lg
-					@media (min-width: 768px) {
-						width: 0.8rem;
-					}
-					// xl
+					// xl => slide vertical
 					@media (min-width: 1200px) {
 						width: 0.5rem;
+						height: 0;
 					}
 				}
 				// Track
@@ -109,7 +107,7 @@ html {
 				}
 				// li width
 				li {
-          min-width: 50%;
+					min-width: 50%;
 					// sm
 					@media (min-width: 576px) {
 						min-width: 33%;
