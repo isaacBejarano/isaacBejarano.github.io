@@ -19,67 +19,69 @@ eye.addEventListener("click", showPassword); // --utility
 
 // <input #email>
 function validateEmail(ref) {
-	toolipInput(ref, ref.value.length === 0); // compulsory
-	testRegex(regexEmail, email); // RegExp email format
+    toolipInput(ref, ref.value.length === 0); // compulsory
+    testRegex(regexEmail, email); // RegExp email format
 }
 
 // <input #password>
 function validatePassword(ref) {
-	toolipInput(ref, ref.value.length === 0); // compulsory
-	testRegex(regexPassword, password); // RegExp password length
+    toolipInput(ref, ref.value.length === 0); // compulsory
+    testRegex(regexPassword, password); // RegExp password length
 }
 
 /* VALIDATION --logic */
 
 // <form #loginform>
 function validateFormSubmit(e) {
-	validateEmail(email); // <input #email> --style
-	validatePassword(password); // <input #password> --style
+    validateEmail(email); // <input #email> --style
+    validatePassword(password); // <input #password> --style
 
-	// --logic
-	email.value.length === 0 ||
-	password.value.length === 0 ||
-	!regexEmail.test(email.value) ||
-	!regexPassword.test(password.value)
-		? (e.stopPropagation(), e.preventDefault())
-		: (alert(`Funcionalidad "Abrir Sesión" en desarrollo.\
+    // --logic
+    email.value.length === 0 ||
+        password.value.length === 0 ||
+        !regexEmail.test(email.value) ||
+        !regexPassword.test(password.value) ?
+        (e.stopPropagation(), e.preventDefault()) :
+        (alert(`Funcionalidad "Abrir Sesión" en desarrollo.\
         \nDisponible próximamente ;)`),
-		  true);
+            true);
 }
 
 /* UTILITY */
 
 // <div #eye>
 function showPassword() {
-	let eyeOpen = document.querySelector("#eye span i:nth-child(1)");
-	let eyeClosed = document.querySelector("#eye span i:nth-child(2)");
+    let eyeOpen = document.querySelector("#eye span i:nth-child(1)");
+    let eyeClosed = document.querySelector("#eye span i:nth-child(2)");
 
-	eyeState = !eyeState; // toggle eye state
+    eyeState = !eyeState; // toggle eye state
 
-	eyeState
-		? eyeToggle(eyeClosed, eyeOpen, "text")
-		: eyeToggle(eyeOpen, eyeClosed, "password");
+    eyeState
+        ?
+        eyeToggle(eyeClosed, eyeOpen, "text") :
+        eyeToggle(eyeOpen, eyeClosed, "password");
 }
 
 /* AUXILIARY */
 
 // --utility
 function eyeToggle(eye1, eye2, type) {
-	eye1.classList.remove("hide-eye");
-	eye2.classList.add("hide-eye");
-	password.type = type; // <input #password>
+    eye1.classList.remove("hide-eye");
+    eye2.classList.add("hide-eye");
+    password.type = type; // <input #password>
 }
 
 // --validation --stye
 function toolipInput(ref, condition) {
-	condition
-		? (ref.classList.remove("is-valid"), ref.classList.add("is-invalid"))
-		: ref.classList.remove("is-invalid");
+    condition
+        ?
+        (ref.classList.remove("is-valid"), ref.classList.add("is-invalid")) :
+        ref.classList.remove("is-invalid");
 }
 
 function testRegex(regex, element) {
-	regex.test(element.value)
-		? ($(`#${element.id}`).tooltip("disable"),
-		  element.classList.add("is-valid"))
-		: $(`#${element.id}`).tooltip("show");
+    regex.test(element.value) ?
+        ($(`#${element.id}`).tooltip("disable"),
+            element.classList.add("is-valid")) :
+        $(`#${element.id}`).tooltip("show");
 }

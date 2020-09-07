@@ -6,8 +6,8 @@ carouselBuild(carousel4, dataCritica);
 carouselBuild(carousel5, dataLeido);
 
 function carouselBuild(carousel, data) {
-	// build te4mplate + inject
-	carousel.innerHTML = `
+    // build template + inject
+    carousel.innerHTML = `
     <ol class="carousel-indicators">
       ${indicatorsBuild(data, carousel)}
     </ol>
@@ -36,13 +36,13 @@ function carouselBuild(carousel, data) {
 
 // lib
 function itemsBuild(data, carousel) {
-	let template = ``;
-	let active = "active";
+    let template = ``;
+    let active = "active";
 
-	for (let i = 0; i < data.length; i++) {
-		if (i > 0) active = ""; // active starts at item 0
+    for (let i = 0; i < data.length; i++) {
+        if (i > 0) active = ""; // active starts at item 0
 
-		template += `
+        template += `
     <div class="carousel-item ${active}" onclick="goToDetailsPage(${data[i].ISBN})">
       <img class="${carousel.dataset.imgClass}"
             width="${carousel.dataset.imgWidth}"
@@ -53,34 +53,34 @@ function itemsBuild(data, carousel) {
         <p>${data[i].author}</p>
       </div>
     </div>`;
-	}
+    }
 
-	return template;
+    return template;
 }
 
 function indicatorsBuild(data, carousel) {
-	// active <li>
-	let template = `
+    // active <li>
+    let template = `
     <li data-target="#${carousel.id}"
       data-slide-to="0"
       class="active">
     </li>`;
 
-	// non-active <li>
-	for (let i = 1; i < data.length; i++) {
-		template += `
+    // non-active <li>
+    for (let i = 1; i < data.length; i++) {
+        template += `
     <li data-target="#${carousel.id}"
         data-slide-to="${i}">
     </li>`;
-	}
+    }
 
-	return template;
+    return template;
 }
 
 function goToDetailsPage(ISBN) {
-	let folderHTML = "dist/html";
+    let folderHTML = "dist/html";
 
-	ISBN && Number.isInteger(ISBN)
-		? (location.href = `${folderHTML}/details.html?ISBN=${ISBN}`)
-		: (location.href = `${folderHTML}/mock.html`);
+    ISBN && Number.isInteger(ISBN) ?
+        (location.href = `${folderHTML}/details.html?ISBN=${ISBN}`) :
+        (location.href = `${folderHTML}/mock.html`);
 }

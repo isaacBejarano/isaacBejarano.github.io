@@ -1,143 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Papiro</title>
 
-		<!-- favicon -->
-		<link rel="icon" href="../img/favicon.png" type="image/png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>Papiro</title>
+  <!-- favicon -->
+  <link rel="icon"
+        href="../img/favicon.png"
+        type="image/png" />
+  <!-- Font Awesome - icons -->
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous" />
+  <!-- Bootstrap CSS. Make sure it is v.4.4^ / .container-{breakpoint}  -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+  <!-- custom style -->
+  <link rel="stylesheet"
+        href="../css/login.css" />
+</head>
 
-		<!-- Font Awesome - icons -->
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-			integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-			crossorigin="anonymous"
-		/>
+<body class="bg-secondary">
+  <!-- jumbotron -->
+  <div class="jumbotron jumbotron-fluid m-0">
+    <div class="container">
+      <h1 class="display-4">Abrir Sesión</h1>
+      <p class="lead">
+        <i> Introduce tu correo electrónico y la contraseña de tu cuenta Papiro para abrir sesión </i>
+      </p>
+    </div>
+  </div>
+  <main class="bg-papiro2-grad mt-sm-5 mx-auto p-4 pt-5">
+    <!-- login form -->
+    <form id="loginform"
+          method="get"
+          action="../../index.html"
+          novalidate>
+      <!-- email -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Correo Electrónico</span>
+          </div>
+          <input id="email"
+                 type="email"
+                 class="form-control"
+                 aria-describedby="email"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="El correo electrónico debe incluir la @ y seguir el formato estándard. Ejemplo: micuenta@gmail.com"
+                 autofocus />
+          <div class="valid-tooltip p-0">
+            <!-- valid padding 0 -->
+          </div>
+          <div class="invalid-tooltip">
+            <p><span>El correo electrónico es obligatorio</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- password -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Contraseña</span>
+          </div>
+          <input id="password"
+                 type="password"
+                 class="form-control"
+                 data-toggle="tooltip"
+                 data-placement="bottom"
+                 title="La contraseña debe tener 9 o más carácteres" />
+          <div class="valid-tooltip p-0">
+            <!-- valid padding 0 -->
+          </div>
+          <div class="invalid-tooltip">
+            <p><span>La contraseña es obligatoria</span></p>
+          </div>
+          <div id="eye"
+               class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="far fa-eye px-1"></i>
+              <i class="far fa-eye-slash px-1 hide-eye"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="text-right">
+        <a href="../html/mock.html"
+           class="text-secondary">
+          <i>olvidaste la contraseña?</i>
+        </a>
+      </div>
+      <!-- submit -->
+      <button type="submit"
+              class="btn btn-success mt-4"> Abrir </button>
+    </form>
+  </main>
+  <!-- back home -->
+  <div class="btn">
+    <a href="../../index.html"> Volver a Inicio </a>
+  </div>
+  <!-- custom javascript -->
+  <script src="../js/login.js"></script>
+  <!-- B4 => 1.jQuery, 2.Popper.js, 3.Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
+</body>
 
-		<!-- Bootstrap CSS. Make sure it is v.4.4^ / .container-{breakpoint}  -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-			crossorigin="anonymous"
-		/>
-
-		<!-- custom style -->
-		<link rel="stylesheet" href="../css/login.css" />
-	</head>
-
-	<body class="bg-secondary">
-		<!-- jumbotron -->
-		<div class="jumbotron jumbotron-fluid m-0">
-			<div class="container">
-				<h1 class="display-4">Abrir Sesión</h1>
-				<p class="lead">
-					<i>
-						Introduce tu correo electrónico y la contraseña de tu cuenta Papiro
-						para abrir sesión
-					</i>
-				</p>
-			</div>
-		</div>
-
-		<main class="bg-papiro2-grad mt-sm-5 mx-auto p-4 pt-5">
-			<!-- login form -->
-			<form id="loginform" method="get" action="../../index.html" novalidate>
-				<!-- email -->
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Correo Electrónico</span>
-						</div>
-						<input
-							id="email"
-							type="email"
-							class="form-control"
-							aria-describedby="email"
-							data-toggle="tooltip"
-							data-placement="top"
-							title="El correo electrónico debe incluir la @ y seguir el formato estándard. Ejemplo: micuenta@gmail.com"
-							autofocus
-						/>
-						<div class="valid-tooltip p-0">
-							<!-- valid padding 0 -->
-						</div>
-						<div class="invalid-tooltip">
-							<p><span>El correo electrónico es obligatorio</span></p>
-						</div>
-					</div>
-				</div>
-
-				<!-- password -->
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Contraseña</span>
-						</div>
-						<input
-							id="password"
-							type="password"
-							class="form-control"
-							data-toggle="tooltip"
-							data-placement="bottom"
-							title="La contraseña debe tener 9 o más carácteres"
-						/>
-						<div class="valid-tooltip p-0">
-							<!-- valid padding 0 -->
-						</div>
-						<div class="invalid-tooltip">
-							<p><span>La contraseña es obligatoria</span></p>
-						</div>
-
-						<div id="eye" class="input-group-prepend">
-							<span class="input-group-text">
-								<i class="far fa-eye px-1"></i>
-								<i class="far fa-eye-slash px-1 hide-eye"></i>
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="text-right">
-					<a href="../html/mock.html" class="text-secondary">
-						<i>olvidaste la contraseña?</i>
-					</a>
-				</div>
-
-				<!-- submit -->
-				<button type="submit" class="btn btn-success mt-4">
-					Abrir
-				</button>
-			</form>
-		</main>
-
-		<!-- back home -->
-		<div class="btn">
-			<a href="../../index.html">
-				Volver a Inicio
-			</a>
-		</div>
-
-		<!-- custom javascript -->
-		<script src="../js/login.js"></script>
-
-		<!-- B4 => 1.jQuery, 2.Popper.js, 3.Bootstrap JS -->
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-			crossorigin="anonymous"
-		></script>
-	</body>
 </html>
