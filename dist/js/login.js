@@ -1,87 +1,88 @@
 /* DOM refs */
-// 1. <form #loginform>
-// 2. <input #email>
-// 3. <input #password>
-// 4. <div #eye>
+const loginForm = document.forms["abrir_form"]; // []
+const loginEmail = loginForm.elements["abrir_email"];
+const loginPassword = loginForm.elements["abrir_password"];
+const eyeIcon = document.querySelector(".eye span i");
 
 /* GLOBALS */
-const regexEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
-const regexPassword = new RegExp(/^([\w!-\/:-@\[-`{-~ªº€·¿~¬çÇ¨´]){9,}/); // alphanumeric case insensitive with length >= 9
-let eyeState = false; // eye state
+let eyeState = false;
+showPassword(); // default open
 
 /* LISTENERS */
-loginform.addEventListener("submit", validateFormSubmit); // --logic
-email.addEventListener("blur", () => validateEmail(email)); // --style
-password.addEventListener("blur", () => validatePassword(password)); // --style
-eye.addEventListener("click", showPassword); // --utility
+loginEmail.addEventListener("blur", function () {
+	validateInput(this);
+});
+loginPassword.addEventListener("blur", function () {
+	validateInput(this);
+});
+eyeIcon.addEventListener("click", showPassword);
+loginForm.addEventListener("submit", validateBeforeSubmit);
 
-/* VALIDATION --style */
+/* VALIDATION */
+// Form Element -> CSS + Validity State
+function validateInput(ref) {
+	const feedback = document.querySelector(
+		`[name = ${ref.name}] ~ div.invalid-feedback`
+	);
+	let msgError = ""; // default valid
+	let regex = /^(?!x)x$/; // default impossible -> regex.test(ref.value) => false
 
-// <input #email>
-function validateEmail(ref) {
-    toolipInput(ref, ref.value.length === 0); // compulsory
-    testRegex(regexEmail, email); // RegExp email format
+	// 1. FORM ELEMENTS -> update regex + feedback msg
+	if (ref.name === "abrir_email") {
+		// email -> like user@email.co.uk
+		regex = RegExp(
+			/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+		);
+		msgError =
+			"El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
+	}
+	if (ref.name === "abrir_password") {
+		// password -> case insensitive && length >= 9
+		regex = RegExp(/^([\w!-\/:-@\[-`{-~ªº€·¿~¬çÇ¨´]){9,}/);
+		msgError = "La contraseña es obligatoria y debe tener mínimo 9 carácteres";
+	}
+	// if(ref.name ===...) etc...
+
+	// 2. FORM ELEMENT -> CSS
+	// feedback msg
+	feedback.textContent = regex.test(ref.value) ? "" : msgError;
+
+	// tooltip
+	ref.classList.remove(regex.test(ref.value) ? "is-invalid" : "is-valid");
+	ref.classList.add(regex.test(ref.value) ? "is-valid" : "is-invalid");
+
+	// 3. FORM ELEMENT -> Validity State: boolean
+	return regex.test(ref.value);
 }
 
-// <input #password>
-function validatePassword(ref) {
-    toolipInput(ref, ref.value.length === 0); // compulsory
-    testRegex(regexPassword, password); // RegExp password length
-}
+// Form -> validate
+function validateBeforeSubmit(e) {
+	let validFormElements = 0;
+	const totalFormElements = loginForm.elements.length - 1; // exclude "submit" input/button
 
-/* VALIDATION --logic */
+	// input state update
+	validFormElements = validateInput(loginEmail) ? 1 : 0;
+	validFormElements += validateInput(loginPassword) ? 1 : 0;
+	// validFormElements += etc...
 
-// <form #loginform>
-function validateFormSubmit(e) {
-    validateEmail(email); // <input #email> --style
-    validatePassword(password); // <input #password> --style
-
-    // --logic
-    email.value.length === 0 ||
-        password.value.length === 0 ||
-        !regexEmail.test(email.value) ||
-        !regexPassword.test(password.value) ?
-        (e.stopPropagation(), e.preventDefault()) :
-        (alert(`Funcionalidad "Abrir Sesión" en desarrollo.\
-        \nDisponible próximamente ;)`),
-            true);
+	// submit
+	validFormElements !== totalFormElements
+		? (e.stopPropagation(), e.preventDefault())
+		: alert(
+				'Funcionalidad "Abrir Sesión" en desarrollo. Disponible próximamente.'
+		  );
 }
 
 /* UTILITY */
-
-// <div #eye>
 function showPassword() {
-    let eyeOpen = document.querySelector("#eye span i:nth-child(1)");
-    let eyeClosed = document.querySelector("#eye span i:nth-child(2)");
+	eyeState = !eyeState; // toggle eye state
 
-    eyeState = !eyeState; // toggle eye state
-
-    eyeState
-        ?
-        eyeToggle(eyeClosed, eyeOpen, "text") :
-        eyeToggle(eyeOpen, eyeClosed, "password");
-}
-
-/* AUXILIARY */
-
-// --utility
-function eyeToggle(eye1, eye2, type) {
-    eye1.classList.remove("hide-eye");
-    eye2.classList.add("hide-eye");
-    password.type = type; // <input #password>
-}
-
-// --validation --stye
-function toolipInput(ref, condition) {
-    condition
-        ?
-        (ref.classList.remove("is-valid"), ref.classList.add("is-invalid")) :
-        ref.classList.remove("is-invalid");
-}
-
-function testRegex(regex, element) {
-    regex.test(element.value) ?
-        ($(`#${element.id}`).tooltip("disable"),
-            element.classList.add("is-valid")) :
-        $(`#${element.id}`).tooltip("show");
+	// toogle icon + input type
+	eyeState
+		? ((loginPassword.type = "password"),
+		  eyeIcon.classList.remove("fa-eye-slash"),
+		  eyeIcon.classList.add("fa-eye"))
+		: ((loginPassword.type = "text"),
+		  eyeIcon.classList.remove("fa-eye"),
+		  eyeIcon.classList.add("fa-eye-slash"));
 }

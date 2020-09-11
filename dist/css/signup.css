@@ -1,100 +1,119 @@
 /*  CORPORATIVE COLORS */
 .text-primary {
-  color: #fff !important;
+	color: #fff !important;
 }
+
 .text-secondary {
-  color: #002343 !important;
+	color: #002343 !important;
 }
+
 .bg-primary {
-  background-color: #fff !important;
+	background-color: #fff !important;
 }
+
 .bg-secondary {
-  background-color: #002343 !important;
+	background-color: #002343 !important;
 }
+
 .border-secondary {
-  border-color: #002343 !important;
+	border-color: #002343 !important;
 }
+
 /* color custom-classes */
 .border-ternary {
-  border-color: #5771a2 !important;
+	border-color: #5771a2 !important;
 }
+
 .bg-ternary {
-  background-color: #5771a2;
+	background-color: #5771a2;
 }
+
 .bg-papiro1 {
-  background-color: wheat;
+	background-color: wheat;
 }
+
 .bg-papiro2 {
-  background-color: beige;
+	background-color: beige;
 }
+
 .bg-papiro2-grad {
-  background-image: linear-gradient(to bottom, wheat, peru);
+	background-image: linear-gradient(to bottom, wheat, peru);
 }
+
 .bg-secondary-grad {
-  background-image: linear-gradient(to top, #002343, #2a374f);
+	background-image: linear-gradient(to top, #002343, #2a374f);
 }
+
 .bg-secondary-grad-reverse {
-  background-image: linear-gradient(to bottom, #002343, #2a374f);
+	background-image: linear-gradient(to bottom, #002343, #2a374f);
 }
+
 .bg-secondary-dark-grad {
-  background-image: linear-gradient(to bottom, #002343, #001e39);
+	background-image: linear-gradient(to bottom, #002343, #001e39);
 }
+
 .bg-ternary-grad {
-  background-image: linear-gradient(to bottom, #5771a2, #455a81);
+	background-image: linear-gradient(to bottom, #5771a2, #455a81);
 }
+
 .text-ternary {
-  color: #5771a2;
+	color: #5771a2;
 }
+
 .text-papiro1 {
-  color: wheat;
+	color: wheat;
 }
+
 .text-papiro2 {
-  color: beige;
+	color: beige;
 }
+
 main {
-  max-width: 576px;
+	max-width: 576px;
 }
-.input-group-text,
-.invalid-tooltip,
-.valid-tooltip {
-  font-size: 0.8rem;
+
+h1>i {
+	font-size: 3rem;
 }
+
+.invalid-feedback {
+	font-size: 1.1rem;
+}
+
 @media (min-width: 576px) {
-  .input-group-text,
-  .invalid-tooltip,
-  .valid-tooltip {
-    font-size: initial;
-  }
+	.invalid-feedback {
+		font-size: initial;
+	}
 }
+
 div.btn {
-  margin: 3rem auto 1rem;
-  display: block;
+	margin: 3rem auto 1rem;
+	display: block;
 }
+
 div.btn a {
-  text-decoration: none;
-  color: #fff;
-  background-color: peru;
-  padding: 10px;
-  border: 1px solid #002343;
-  border-radius: 15px;
+	text-decoration: none;
+	color: #fff;
+	background-color: peru;
+	padding: 10px;
+	border: 1px solid #002343;
+	border-radius: 15px;
 }
+
 div.btn a:hover {
-  color: #5771a2;
-  background-color: wheat;
+	color: #5771a2;
+	background-color: wheat;
 }
-#eye1,
-#eye2 {
-  cursor: pointer;
+
+.eye {
+	cursor: pointer;
 }
-#eye1 span:hover,
-#eye2 span:hover {
-  color: #002343;
-  background-color: #fff;
+
+.eye span:hover {
+	color: #002343;
+	background-color: #fff;
 }
-#eye1 span:active,
-#eye2 span:active {
-  color: peru;
-}
-.hide-eye {
-  display: none;
+
+.eye span:active {
+	color: peru;
 }

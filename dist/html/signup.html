@@ -29,169 +29,190 @@
   <!-- jumbotron -->
   <div class="jumbotron jumbotron-fluid m-0">
     <div class="container">
-      <h1 class="display-4">Regístrate!</h1>
+      <h1 class="display-4">
+        <i class="fas fa-hand-point-right"></i>
+        <span>Regístrate!</span>
+      </h1>
       <p class="lead">
         <i> Introduce tu correo electrónico, una contraseña y tu provincia para empezar a usar tu cuenta Papiro </i>
       </p>
     </div>
   </div>
   <main class="bg-papiro2-grad mt-sm-5 mx-auto p-4 pt-5">
-    <!-- login form -->
-    <form id="loginform"
-          method="get"
+    <!-- FORM -->
+    <form method="get"
           action="../../index.html"
-          novalidate>
-      <!-- email -->
+          name="registro_form">
+      <!-- EMAIL -->
       <div class="form-group">
-        <div class="input-group input-group">
+        <!-- input-group -->
+        <div class="input-group input-group-lg">
+          <!-- prepend @ -->
           <div class="input-group-prepend">
-            <span class="input-group-text">Correo Electrónico</span>
+            <span class="input-group-text">@</span>
           </div>
+          <!-- accessibility - label: screen readers -->
+          <label for="email"
+                 class="sr-only">email</label>
+          <!-- input -->
           <input id="email"
-                 type="email"
+                 name="registro_email"
                  class="form-control"
-                 aria-describedby="email"
-                 data-toggle="tooltip"
-                 data-placement="top"
-                 title="El correo electrónico debe incluir la @ y seguir el formato estándard. Ejemplo: micuenta@gmail.com"
+                 type="text"
+                 placeholder="Correo Electrónico"
+                 autocomplete="on"
                  autofocus />
-          <div class="valid-tooltip p-0">
-            <!-- valid padding 0 -->
-          </div>
-          <div class="invalid-tooltip">
-            <p><span>El correo electrónico es obligatorio</span></p>
-          </div>
+          <!-- tooltips -->
+          <div class="valid-tooltip p-0"></div>
+          <div class="invalid-tooltip p-0"></div>
+          <div class="invalid-feedback border border-danger rounded-lg bg-papiro1 p-2"></div>
         </div>
       </div>
-      <!-- password -->
+      <!-- PASSWORD -->
       <div class="form-group">
-        <div class="input-group">
+        <!-- input-group-->
+        <div class="input-group input-group-lg">
+          <!-- prepend - key -->
           <div class="input-group-prepend">
-            <span class="input-group-text">Contraseña</span>
+            <span class="input-group-text">
+              <i class="fas fa-key"></i>
+            </span>
           </div>
+          <!-- accessibility - label: screen readers -->
+          <label for="password"
+                 class="sr-only">password</label>
+          <!-- input -->
           <input id="password"
-                 type="password"
+                 name="registro_password"
                  class="form-control"
-                 data-toggle="tooltip"
-                 data-placement="bottom"
-                 title="La contraseña debe tener 9 o más carácteres" />
-          <div class="valid-tooltip p-0">
-            <!-- valid padding 0 -->
-          </div>
-          <div class="invalid-tooltip">
-            <p><span>La contraseña es obligatoria</span></p>
-          </div>
-          <div id="eye1"
-               class="input-group-prepend">
+                 type="password"
+                 placeholder="Constraseña" />
+          <!-- appended - eye -->
+          <div class="input-group-append eye">
             <span class="input-group-text">
-              <i class="far fa-eye px-1"></i>
-              <i class="far fa-eye-slash px-1 hide-eye"></i>
+              <i class="fa">
+                <!-- fa icon outlet -->
+              </i>
             </span>
           </div>
+          <!-- tootlips -->
+          <div class="valid-tooltip p-0"></div>
+          <div class="invalid-tooltip p-0"></div>
+          <div class="invalid-feedback border border-danger rounded-lg bg-papiro1 p-2"></div>
         </div>
       </div>
-      <!-- confirm password -->
+      <!-- CONFIRM PASSWORD -->
       <div class="form-group">
-        <div class="input-group">
+        <!-- input-group -->
+        <div class="input-group input-group-lg">
+          <!-- prepend - equals -->
           <div class="input-group-prepend">
-            <span class="input-group-text">Confirmar</span>
-          </div>
-          <input id="confirmar"
-                 type="password"
-                 class="form-control"
-                 placeholder="Escribe aquí tu constraseña de nuevo" />
-          <div class="valid-tooltip p-0">
-            <!-- valid padding 0 -->
-          </div>
-          <div class="invalid-tooltip">
-            <p>
-              <span> Confirma tu contraseña. Usa el ojo para mostrarla si lo necesitas </span>
-            </p>
-          </div>
-          <div id="eye2"
-               class="input-group-prepend">
             <span class="input-group-text">
-              <i class="far fa-eye px-1"></i>
-              <i class="far fa-eye-slash px-1 hide-eye"></i>
+              <i class="fas fa-equals"></i>
             </span>
           </div>
+          <!-- accessibility - label: screen readers -->
+          <label for="password_confirm"
+                 class="sr-only">password confirm</label>
+          <!-- input -->
+          <input id="password_confirm"
+                 name="registro_password_confirm"
+                 class="form-control"
+                 type="password"
+                 placeholder="Confirma Constraseña" />
+          <!-- appended - eye -->
+          <div class="input-group-append eye">
+            <span class="input-group-text">
+              <i class="fa">
+                <!-- fa icon outlet -->
+              </i>
+            </span>
+          </div>
+          <!-- tootlips -->
+          <div class="valid-tooltip p-0"></div>
+          <div class="invalid-tooltip p-0"></div>
+          <div class="invalid-feedback border border-danger rounded-lg bg-papiro1 p-2"></div>
         </div>
       </div>
-      <!-- provincia -->
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Provincia</span>
-        </div>
-        <select class="custom-select"
-                id="provincia">
-          <option value="0"
-                  selected
-                  disabled>Selecciona la tuya</option>
-          <option value="1">Álava</option>
-          <option value="2">Albacete</option>
-          <option value="3">Alicante</option>
-          <option value="4">Almería</option>
-          <option value="5">Asturias</option>
-          <option value="6">Ávila</option>
-          <option value="7">Badajoz</option>
-          <option value="8">Barcelona</option>
-          <option value="9">Bizkaia</option>
-          <option value="10">Burgos</option>
-          <option value="11">Cáceres</option>
-          <option value="12">Cádiz</option>
-          <option value="13">Cantabria</option>
-          <option value="14">Castelló</option>
-          <option value="15">Ceuta</option>
-          <option value="16">Ciudad Real</option>
-          <option value="17">Córdoba</option>
-          <option value="18">Coruña</option>
-          <option value="19">Cuenca</option>
-          <option value="20">Girona</option>
-          <option value="21">Granada</option>
-          <option value="22">Guadalajara</option>
-          <option value="23">Gipuzkoa</option>
-          <option value="24">Huelva</option>
-          <option value="25">Huesca</option>
-          <option value="26">Illes Balears</option>
-          <option value="27">Jaén</option>
-          <option value="28">León</option>
-          <option value="29">Lleida</option>
-          <option value="30">Lugo</option>
-          <option value="31">Madrid</option>
-          <option value="32">Málaga</option>
-          <option value="33">Melilla</option>
-          <option value="34">Murcia</option>
-          <option value="35">Navarra</option>
-          <option value="36">Ourense</option>
-          <option value="37">Palencia</option>
-          <option value="38">Las Palmas</option>
-          <option value="39">Pontevedra</option>
-          <option value="40">La Rioja</option>
-          <option value="41">Salamanca</option>
-          <option value="42">Segovia</option>
-          <option value="43">Sevilla</option>
-          <option value="44">Soria</option>
-          <option value="45">Tarragona</option>
-          <option value="46">Santa Cruz de Tenerife</option>
-          <option value="47">Teruel</option>
-          <option value="48">Toledo</option>
-          <option value="49">València</option>
-          <option value="50">Valladolid</option>
-          <option value="51">Zamora</option>
-          <option value="52">Zaragoza</option>
-        </select>
-        <div class="valid-tooltip p-0">
-          <!-- valid padding 0 -->
-        </div>
-        <div class="invalid-tooltip">
-          <p>
-            <span> La provincia es obligatoria </span>
-          </p>
+      <!-- PROVINCIA -->
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <!-- prepend -->
+          <div class="input-group-prepend">
+            <span class="input-group-text">Provincia</span>
+          </div>
+          <!-- accessibility - label: screen readers -->
+          <label for="provincia"
+                 class="sr-only">provincia</label>
+          <!-- select -->
+          <select id="provincia"
+                  name='registro_provincia'
+                  class="custom-select">
+            <option value="0"
+                    selected
+                    disabled> selecciona la tuya</option>
+            <option value="1">Álava</option>
+            <option value="2">Albacete</option>
+            <option value="3">Alicante</option>
+            <option value="4">Almería</option>
+            <option value="5">Asturias</option>
+            <option value="6">Ávila</option>
+            <option value="7">Badajoz</option>
+            <option value="8">Barcelona</option>
+            <option value="9">Bizkaia</option>
+            <option value="10">Burgos</option>
+            <option value="11">Cáceres</option>
+            <option value="12">Cádiz</option>
+            <option value="13">Cantabria</option>
+            <option value="14">Castelló</option>
+            <option value="15">Ceuta</option>
+            <option value="16">Ciudad Real</option>
+            <option value="17">Córdoba</option>
+            <option value="18">Coruña</option>
+            <option value="19">Cuenca</option>
+            <option value="20">Girona</option>
+            <option value="21">Granada</option>
+            <option value="22">Guadalajara</option>
+            <option value="23">Gipuzkoa</option>
+            <option value="24">Huelva</option>
+            <option value="25">Huesca</option>
+            <option value="26">Illes Balears</option>
+            <option value="27">Jaén</option>
+            <option value="28">León</option>
+            <option value="29">Lleida</option>
+            <option value="30">Lugo</option>
+            <option value="31">Madrid</option>
+            <option value="32">Málaga</option>
+            <option value="33">Melilla</option>
+            <option value="34">Murcia</option>
+            <option value="35">Navarra</option>
+            <option value="36">Ourense</option>
+            <option value="37">Palencia</option>
+            <option value="38">Las Palmas</option>
+            <option value="39">Pontevedra</option>
+            <option value="40">La Rioja</option>
+            <option value="41">Salamanca</option>
+            <option value="42">Segovia</option>
+            <option value="43">Sevilla</option>
+            <option value="44">Soria</option>
+            <option value="45">Tarragona</option>
+            <option value="46">Santa Cruz de Tenerife</option>
+            <option value="47">Teruel</option>
+            <option value="48">Toledo</option>
+            <option value="49">València</option>
+            <option value="50">Valladolid</option>
+            <option value="51">Zamora</option>
+            <option value="52">Zaragoza</option>
+          </select>
+          <!-- tootlips -->
+          <div class="valid-tooltip p-0"></div>
+          <div class="invalid-tooltip p-0"></div>
+          <div class="invalid-feedback border border-danger rounded-lg bg-papiro1 p-2"></div>
         </div>
       </div>
-      <!-- submit -->
+      <!-- SUBMIT -->
       <button type="submit"
-              class="btn btn-success mt-5">Registrar</button>
+              class="btn btn-dark mt-4">Registrar</button>
     </form>
   </main>
   <!-- back home -->

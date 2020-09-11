@@ -1,624 +1,742 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<!-- Required meta viewport -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<!-- Bootstrap CSS. v.4.4^ <-> .container-{breakpoint}  -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<!-- Font Awesome - icons -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+			integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+			crossorigin="anonymous"
+		/>
+		<link rel="icon" href="dist/img/favicon.png" type="image/png" />
+		<title>Papiro</title>
+		<!-- custom style -->
+		<link rel="stylesheet" href="dist/css/main.css" />
+	</head>
 
-<head>
-  <!-- Required meta viewport -->
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Bootstrap CSS. v.4.4^ <-> .container-{breakpoint}  -->
-  <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous" />
-  <!-- Font Awesome - icons -->
-  <link rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-        crossorigin="anonymous" />
-  <link rel="icon"
-        href="dist/img/favicon.png"
-        type="image/png" />
-  <title>Papiro</title>
-  <!-- custom style -->
-  <link rel="stylesheet"
-        href="dist/css/main.css" />
-</head>
+	<body class="bg-dark">
+		<!-- HEADER -->
+		<header class="container-fluid bg-secondary fixed-top">
+			<div class="row">
+				<!-- Logo -->
+				<div class="col-4 d-flex align-items-center">
+					<img
+						id="logo_papiro"
+						src="dist/img/papiroAlfa.png"
+						alt="logo aplicación Papiro"
+					/>
+				</div>
+				<!-- Links -->
+				<nav class="col d-flex justify-content-end align-items-center">
+					<!-- 1.Ayuda -->
+					<a
+						class="mr-2 mr-md-3 font-weight-lighter text-light"
+						href="dist/html/mock.html"
+					>
+						ayuda
+					</a>
+					<!-- 2.Idioma -->
+					<div id="idioma" class="mr-2 mr-md-3 dropdown show">
+						<a
+							class="btn dropdown-toggle font-weight-lighter text-light"
+							href="#"
+							role="button"
+							id="dropdownLanguages"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							idiomas
+						</a>
+						<div
+							class="dropdown-menu bg-ternary-grad"
+							aria-labelledby="dropdownLanguages"
+						>
+							<a class="dropdown-item" href="#">ESP</a>
+							<a class="dropdown-item" href="dist/lang/cat/mock.html">CAT</a>
+							<a class="dropdown-item" href="dist/lang/eng/mock.html">ENG</a>
+						</div>
+					</div>
+					<!-- 3.Laie -->
+					<a class="gotobookshop" href="https://www.laie.es/es/" target="_blank">
+						<img id="logo_laie" src="dist/img/laie.svg" alt="logo librería Laie" />
+					</a>
+				</nav>
+			</div>
+		</header>
+		<!-- NAVBAR -->
+		<nav
+			id="main-nav"
+			class="pb-3 navbar navbar-expand-lg navbar-dark fixed-top border-bottom border-ternary pb-2 bg-secondary-grad-reverse"
+		>
+			<!-- hamburger -->
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarTogglerPapiro"
+				aria-controls="navbarTogglerPapiro"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- collapsable -->
+			<div
+				class="collapse navbar-collapse border-ternary"
+				id="navbarTogglerPapiro"
+			>
+				<!-- navbar 1 -->
+				<ul class="navbar-nav mr-auto my-1 my-lg-0 text-center">
+					<!-- < @lg -->
+					<li class="nav-item active mx-auto d-lg-none">
+						<a class="nav-link h3" href="#">
+							<i class="fas fa-home"></i>
+							<!-- <span class="sr-only">(current)</span> -->
+						</a>
+					</li>
+					<li class="nav-item mx-auto d-lg-none">
+						<a class="nav-link h3" href="dist/html/mock.html">Novedades</a>
+						<a class="nav-link h3" href="dist/html/mock.html">Crítica</a>
+						<a class="nav-link h3" href="dist/html/mock.html">Lo más leído</a>
+						<a class="nav-link h3" href="dist/html/mock.html">Recomendado</a>
+						<a class="nav-link h3" href="dist/html/mock.html">Mixes</a>
+					</li>
+					<!-- >= @lg -->
+					<li class="nav-item active d-none d-lg-block">
+						<a class="nav-link" href="#">
+							<i class="fas fa-home"></i>
+							<!-- <span class="sr-only">(current)</span> -->
+						</a>
+					</li>
+					<li class="nav-item dropdown ml-3 ml-lg-0">
+						<a
+							class="nav-link dropdown-toggle text-light d-none d-lg-block"
+							href="#"
+							id="navbarDropdownSections"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							secciones
+						</a>
+						<div
+							class="dropdown-menu bg-ternary-grad"
+							aria-labelledby="navbarDropdownSections"
+						>
+							<a class="dropdown-item" href="dist/html/mock.html">Novedades</a>
+							<a class="dropdown-item" href="dist/html/mock.html">Crítica</a>
+							<a class="dropdown-item" href="dist/html/mock.html">Lo más leído</a>
+							<a class="dropdown-item" href="dist/html/mock.html">Recomendado</a>
+							<a class="dropdown-item" href="dist/html/mock.html">Mixes</a>
+						</div>
+					</li>
+				</ul>
+				<!-- navbar 2 -->
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-lg-row">
+					<!-- reader -->
+					<li id="reader" class="nav-item w-100">
+						<!-- < @lg -->
+						<a class="nav-link p-1 d-block d-lg-none" href="dist/html/mock.html">
+							<button type="button" class="btn btn-outline-light btn-lg w-100">
+								<i class="fas fa-book-open px-1"></i>
+								Papiro Reader
+							</button>
+						</a>
+						<!-- >= @lg -->
+						<a class="nav-link d-none d-lg-flex" href="dist/html/mock.html">
+							<button type="button" class="btn btn-light btn-sm" style="width: 8.6rem">
+								<i class="fas fa-book-open px-1"></i>
+								Papiro Reader
+							</button>
+						</a>
+					</li>
+					<!-- log in -->
+					<li id="login" class="nav-item w-100">
+						<!-- < @lg -->
+						<a class="nav-link p-1 d-block d-lg-none" href="dist/html/login.html">
+							<button type="button" class="btn btn-outline-light btn-lg w-100">
+								<i class="fas fa-sign-in-alt px-1"></i>
+								Abrir Sesión
+							</button>
+						</a>
+						<!-- >= @lg -->
+						<a class="nav-link d-none d-lg-flex" href="dist/html/login.html">
+							<button
+								type="button"
+								class="btn btn-outline-light btn-sm"
+								style="width: 7.7rem"
+							>
+								<i class="fas fa-sign-in-alt px-1"></i>
+								Abrir Sesión
+							</button>
+						</a>
+					</li>
+					<!-- sign up -->
+					<li id="signin" class="nav-item w-100">
+						<!-- < @lg -->
+						<a class="nav-link p-1 d-block d-lg-none" href="dist/html/signup.html">
+							<button type="button" class="btn btn-outline-light btn-lg w-100">
+								<i class="fas fa-hand-point-right px-1"></i>
+								Regístrate!
+							</button>
+						</a>
+						<!-- >= @lg -->
+						<a class="nav-link d-none d-lg-flex" href="dist/html/signup.html">
+							<button
+								type="button"
+								class="btn btn-outline-info btn-sm"
+								style="width: 7.2rem"
+							>
+								<i class="fas fa-hand-point-right px-1"></i>
+								Regístrate!
+							</button>
+						</a>
+					</li>
+					<!-- premium -->
+					<li id="premium" class="nav-item w-100">
+						<!-- < @lg -->
+						<a class="nav-link p-1 d-block d-lg-none" href="dist/html/mock.html">
+							<button type="button" class="btn btn-outline-light btn-lg w-100">
+								<i class="fas fa-award px-1"></i>
+								Hazte Premium!
+							</button>
+						</a>
+						<!-- >= @lg -->
+						<a class="nav-link d-none d-lg-flex" href="dist/html/mock.html">
+							<button
+								type="button"
+								class="btn btn-outline-warning btn-sm"
+								style="width: 8.9rem"
+							>
+								<i class="fas fa-award px-1"></i>
+								Hazte Premium!
+							</button>
+						</a>
+					</li>
+				</ul>
 
-<body class="bg-dark">
-  <!-- HEADER -->
-  <header class="container-fluid bg-secondary fixed-top">
-    <div class="row">
-      <!-- Logo -->
-      <div class="col-4 d-flex align-items-center">
-        <img id="logo_papiro"
-             src="dist/img/papiroAlfa.png"
-             alt="logo aplicación Papiro" />
-      </div>
-      <!-- Links -->
-      <nav class="col d-flex justify-content-end align-items-center">
-        <!-- 1.Ayuda -->
-        <a class="mr-2 mr-md-3 font-weight-lighter text-light"
-           href="dist/html/mock.html"> ayuda </a>
-        <!-- 2.Idioma -->
-        <div id="idioma"
-             class="mr-2 mr-md-3 dropdown show">
-          <a class="btn dropdown-toggle font-weight-lighter text-light"
-             href="#"
-             role="button"
-             id="dropdownLanguages"
-             data-toggle="dropdown"
-             aria-haspopup="true"
-             aria-expanded="false"> idiomas </a>
-          <div class="dropdown-menu bg-ternary-grad"
-               aria-labelledby="dropdownLanguages">
-            <a class="dropdown-item"
-               href="#">ESP</a>
-            <a class="dropdown-item"
-               href="dist/lang/cat/mock.html">CAT</a>
-            <a class="dropdown-item"
-               href="dist/lang/eng/mock.html">ENG</a>
-          </div>
-        </div>
-        <!-- 3.Laie -->
-        <a class="gotobookshop"
-           href="https://www.laie.es/es/"
-           target="_blank">
-          <img id="logo_laie"
-               src="dist/img/laie.svg"
-               alt="logo librería Laie" />
-        </a>
-      </nav>
-    </div>
-  </header>
-  <!-- NAVBAR -->
-  <nav id="main-nav"
-       class="pb-3 navbar navbar-expand-lg navbar-dark fixed-top border-bottom border-ternary pb-2 bg-secondary-grad-reverse">
-    <!-- hamburger -->
-    <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerPapiro"
-            aria-controls="navbarTogglerPapiro"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- collapsable -->
-    <div class="collapse navbar-collapse border-ternary"
-         id="navbarTogglerPapiro">
-      <!-- navbar 1 -->
-      <ul class="navbar-nav mr-auto my-5 my-lg-0">
-        <!-- < @lg -->
-        <li class="nav-item active mx-auto d-lg-none">
-          <a class="nav-link h2"
-             href="#">
-            <i class="fas fa-home"></i>
-            <!-- <span class="sr-only">(current)</span> -->
-          </a>
-        </li>
-        <li class="nav-item mx-auto d-lg-none">
-          <a class="nav-link h2"
-             href="dist/html/mock.html">Novedades</a>
-          <a class="nav-link h2"
-             href="dist/html/mock.html">Crítica</a>
-          <a class="nav-link h2"
-             href="dist/html/mock.html">Lo más leído</a>
-          <a class="nav-link h2"
-             href="dist/html/mock.html">Recomendado</a>
-          <a class="nav-link h2"
-             href="dist/html/mock.html">Mixes</a>
-        </li>
-        <!-- >= @lg -->
-        <li class="nav-item active d-none d-lg-block">
-          <a class="nav-link"
-             href="#">
-            <i class="fas fa-home"></i>
-            <!-- <span class="sr-only">(current)</span> -->
-          </a>
-        </li>
-        <li class="nav-item dropdown ml-3 ml-lg-0">
-          <a class="nav-link dropdown-toggle text-light d-none d-lg-block"
-             href="#"
-             id="navbarDropdownSections"
-             role="button"
-             data-toggle="dropdown"
-             aria-haspopup="true"
-             aria-expanded="false"> secciones </a>
-          <div class="dropdown-menu bg-ternary-grad"
-               aria-labelledby="navbarDropdownSections">
-            <a class="dropdown-item"
-               href="dist/html/mock.html">Novedades</a>
-            <a class="dropdown-item"
-               href="dist/html/mock.html">Crítica</a>
-            <a class="dropdown-item"
-               href="dist/html/mock.html">Lo más leído</a>
-            <a class="dropdown-item"
-               href="dist/html/mock.html">Recomendado</a>
-            <a class="dropdown-item"
-               href="dist/html/mock.html">Mixes</a>
-          </div>
-        </li>
-      </ul>
-      <!-- navbar 2 -->
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-lg-row">
-        <!-- reader -->
-        <li id="reader"
-            class="nav-item w-100">
-          <!-- < @lg -->
-          <a class="nav-link d-block d-lg-none"
-             href="dist/html/mock.html">
-            <button type="button"
-                    class="btn btn-outline-light btn-lg w-100">
-              <i class="fas fa-book-open px-1"></i> Papiro Reader</button>
-          </a>
-          <!-- >= @lg -->
-          <a class="nav-link d-none d-lg-flex "
-             href="dist/html/mock.html">
-            <button type="button"
-                    class="btn btn-light btn-sm"
-                    style="width: 8.6rem;">
-              <i class="fas fa-book-open px-1"></i> Papiro Reader</button>
-          </a>
-        </li>
-        <!-- log in -->
-        <li id="login"
-            class="nav-item w-100">
-          <!-- < @lg -->
-          <a class="nav-link d-block d-lg-none"
-             href="dist/html/login.html">
-            <button type="button"
-                    class="btn btn-outline-light btn-lg w-100">
-              <i class="fas fa-sign-in-alt px-1"></i> Abrir Sesión</button>
-          </a>
-          <!-- >= @lg -->
-          <a class="nav-link d-none d-lg-flex"
-             href="dist/html/login.html">
-            <button type="button"
-                    class="btn btn-outline-light btn-sm"
-                    style="width: 7.7rem;">
-              <i class="fas fa-sign-in-alt px-1"></i> Abrir Sesión</button>
-          </a>
-        </li>
-        <!-- sign up -->
-        <li id="signin"
-            class="nav-item w-100">
-          <!-- < @lg -->
-          <a class="nav-link d-block d-lg-none"
-             href="dist/html/signup.html">
-            <button type="button"
-                    class="btn btn-outline-light btn-lg w-100">
-              <i class="fas fa-hand-point-right px-1"></i> Regístrate!</button>
-          </a>
-          <!-- >= @lg -->
-          <a class="nav-link d-none d-lg-flex"
-             href="dist/html/signup.html">
-            <button type="button"
-                    class="btn btn-outline-info btn-sm"
-                    style="width: 7.2rem;">
-              <i class="fas fa-hand-point-right px-1"></i> Regístrate!</button>
-          </a>
-        </li>
-        <!-- premium -->
-        <li id="premium"
-            class="nav-item w-100">
-          <!-- < @lg -->
-          <a class="nav-link d-block d-lg-none"
-             href="dist/html/mock.html">
-            <button type="button"
-                    class="btn btn-outline-light btn-lg w-100">
-              <i class="fas fa-award px-1"></i> Hazte Premium!</button>
-          </a>
-          <!-- >= @lg -->
-          <a class="nav-link d-none d-lg-flex"
-             href="dist/html/mock.html">
-            <button type="button"
-                    class="btn btn-outline-warning btn-sm"
-                    style="width: 8.9rem;">
-              <i class="fas fa-award px-1"></i> Hazte Premium!</button>
-          </a>
-        </li>
-      </ul>
-      <!-- search bar -->
-      <form action="#"
-            method="get"
-            id="searchbar"
-            class="form-inline mt-5 mb-2 my-lg-0 ml-lg-2 justify-content-center"
-            novalidate>
-        <input id="searchbarInput"
-               class="form-control mr-2"
-               type="search"
-               placeholder="buscar título"
-               aria-label="Search"
-               value=""
-               autofocus />
-        <div class="valid-tooltip p-0">
-          <!-- valid padding 0 -->
-        </div>
-        <div class="invalid-tooltip">
-          <p>
-            <span>Introduce una palabra obligatoriamente</span>
-            <span>Ésta debe tener más de 3 carácteres</span>
-          </p>
-        </div>
-        <button class="btn btn-outline-secondary btn-sm py-2 d-lg-none d-xl-block"
-                type="submit"> Buscar </button>
-      </form>
-    </div>
-  </nav>
-  <!-- WRAPPER -->
-  <div id="wrapper"
-       class="container-fluid">
-    <div class="row">
-      <!-- FRONTPAGE -->
-      <section id="frontpage"
-               class="col-12 col-md-9 col-xl-8 order-md-1 p-0 bg-primary">
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb py-1 pl-3 m-0 border-bottom border-ternary rounded-0 text-ternary">
-            <li class="breadcrumb-item active"
-                aria-current="page">Inicio</li>
-            <li class="breadcrumb-item"
-                aria-current="page"></li>
-          </ol>
-        </nav>
-        <!-- main -->
-        <main id="carousels"
-              class="pt-0 bg-primary">
-          <!-- NOVEDADES / B4-carousel --reactive-->
-          <section class="pt-4 bg-papiro1 text-ternary">
-            <h1 class="display-4 text-center font-weight-lighter">novedades</h1>
-            <div id="carousel1"
-                 data-ride="carousel"
-                 class="carousel slide bg-papiro2-grad"
-                 data-img-width="150"
-                 data-img-class="d-block mx-auto my-5 pb-5"
-                 data-caption-class="carousel-caption text-primary pb-0"></div>
-          </section>
-          <!-- MIXES / B4-carousel --reactive-->
-          <section class="pt-4 bg-papiro1 text-ternary">
-            <h1 class="display-4 text-center font-weight-lighter">mix verano </h1>
-            <div id="carousel2"
-                 data-ride="carousel"
-                 class="carousel slide bg-papiro2-grad"
-                 data-img-width="150"
-                 data-img-class="d-block mx-auto my-5 pb-5"
-                 data-caption-class="carousel-caption text-primary pb-0"></div>
-          </section>
-          <!-- RECOMENDADO / B4-carousel --reactive-->
-          <section class="pt-4 bg-papiro1 text-ternary">
-            <h1 class="display-4 text-center font-weight-lighter">recomendado </h1>
-            <div id="carousel3"
-                 data-ride="carousel"
-                 class="carousel slide bg-papiro2-grad"
-                 data-img-width="150"
-                 data-img-class="d-block mx-auto my-5 pb-5"
-                 data-caption-class="carousel-caption text-primary pb-0"></div>
-          </section>
-          <!-- CRÍTICA / B4-carousel --reactive-->
-          <section class="pt-4 bg-papiro1 text-ternary">
-            <h1 class="display-4 text-center font-weight-lighter">crítica</h1>
-            <div id="carousel4"
-                 data-ride="carousel"
-                 class="carousel slide bg-papiro2-grad"
-                 data-img-width="150"
-                 data-img-class="d-block mx-auto my-5 pb-5"
-                 data-caption-class="carousel-caption text-primary pb-0"></div>
-          </section>
-          <!-- LO MáS LEÍDO / B4-carousel --reactive-->
-          <section class="pt-4 bg-papiro1 text-ternary">
-            <h1 class="display-4 text-center font-weight-lighter">lo más leído </h1>
-            <div id="carousel5"
-                 data-ride="carousel"
-                 class="carousel slide bg-papiro2-grad"
-                 data-img-width="150"
-                 data-img-class="d-block mx-auto my-5 pb-5"
-                 data-caption-class="carousel-caption text-primary pb-0"></div>
-          </section>
-        </main>
-      </section>
-      <!-- BIBLIOLISTS -->
-      <section id="bibliolists"
-               class="col-12 col-md-3 col-xl-2 p-3 pt-4 border border-left-0 border-ternary text-ternary bg-secondary-grad">
-        <!-- tu biblioteca -->
-        <section class="mb-4"
-                 id="biblio">
-          <h1 class="section-title font-weight-lighter text-papiro1"> mi biblioteca </h1>
-          <ul class="list-group">
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html"> recomendado para ti </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html"> mixes </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html"> tu última lectura </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fas fa-podcast"></i>
-                <span class="pl-1 font-weight-lighter">podcast</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <!-- readlists -->
-        <section class="mb-4"
-                 id="readlists">
-          <h1 class="section-title font-weight-lighter text-papiro1">readlists </h1>
-          <ul class="list-group">
-            <!-- gestionar -->
-            <li class="list-group-item text-left bg-secondary-dark-grad text-papiro2 pt-2 pb-1"> gestionar </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="far fa-eye-slash"></i>
-                <span class="pl-1 font-weight-lighter">crear lista privada</span>
-              </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fa fa-plus"></i>
-                <span class="pl-1 font-weight-lighter">crear lista pública</span>
-              </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="far fa-edit"></i>
-                <span class="pl-1 font-weight-lighter">editar</span>
-              </a>
-            </li>
-            <!-- my readlists -->
-            <li class="list-group-item text-left bg-secondary-dark-grad text-papiro2 pt-2 pb-1"> mis readlists </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fa fa-list"></i>
-                <span class="pl-1 font-weight-lighter">misterio</span>
-              </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fa fa-list"></i>
-                <span class="pl-1 font-weight-lighter">cuentos y poemas</span>
-              </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fa fa-list"></i>
-                <span class="pl-1 font-weight-lighter">vacaciones 2020</span>
-              </a>
-            </li>
-            <li class="list-group-item bg-secondary text-ternary">
-              <a class="mr-2 mr-md-3 text-ternary"
-                 href="dist/html/mock.html">
-                <i class="fa fa-list"></i>
-                <span class="pl-1 font-weight-lighter">syfy</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <!-- FRIENDS -->
-      <section id="friends"
-               class="col-12 col-md-12 col-xl-2 order-md-1 p-3 pt-4 border border-right-0 border-ternary text-ternary bg-secondary-grad">
-        <h1 class="section-title font-weight-lighter text-papiro1">amistades </h1>
-        <ul class="d-flex flex-row d-xl-block list-group">
-          <!-- visible @xs -->
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/emily_blunt.jpg"
-                     alt="emily_blunt" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Emily Blunt</h4>
-                  <p class="card-text">está leyendo "All You Need Is Kill"</p>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/johnny_5.jpg"
-                     alt="johnny_5" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Johnny 5</h4>
-                  <p class="card-text"> está leyendo "Sueñan Los Androides Con Ovejas Eléctricas?" </p>
-                </div>
-              </div>
-            </a>
-          </li>
-          <!-- visible @sm -->
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/jeff_goldblum.jpg"
-                     alt="jeff_goldblum" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Jeff Goldblum</h4>
-                  <p class="card-text">está leyendo "El Món Perdut"</p>
-                </div>
-              </div>
-            </a>
-          </li>
-          <!-- visible @md -->
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/hitler.jpg"
-                     alt="emily_blunt" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Adolf Hitler</h4>
-                  <p class="card-text">está leyendo "Controla la teva Ira"</p>
-                </div>
-              </div>
-            </a>
-          </li>
-          <!-- visible @lg -->
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/gandhi.jpg"
-                     alt="johnny_5" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Mahatma Gandhi</h4>
-                  <p class="card-text">está leyendo "The Art of War"</p>
-                </div>
-              </div>
-            </a>
-          </li>
-          <!-- xl -->
-          <li class="list-group-item bg-secondary px-2 p-xl-1">
-            <a class="m-0 text-ternary"
-               href="dist/html/mock.html">
-              <div class="card bg-ternary text-secondary">
-                <img class="card-img-top"
-                     src="data/img/jessica_rabbit.png"
-                     alt="jeff_goldblum" />
-                <div class="card-body text-left">
-                  <h4 class="card-title">Jessica Rabbit</h4>
-                  <p class="card-text">está leyendo "Quiero ser Youtuber"</p>
-                </div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
-  <!-- FOOTER -->
-  <footer class="pt-4 bg-secondary font-weight-lighter">
-    <!-- net links -->
-    <section class="container-md">
-      <div class="row pb-4">
-        <!-- services -->
-        <ul class="col-4 pl-4 pr-2 nav flex-column align-items-start">
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html">ayuda</a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> quiero publicar </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> asistencia literaria </a>
-          </li>
-          <li class="nav-item">
-            <a class="gotobookshop"
-               href="https://www.laie.es/es/"
-               target="_blank">
-              <img id="footer_logo_laie"
-                   src="dist/img/laie.svg"
-                   alt="logo librería Laie" />
-            </a>
-          </li>
-        </ul>
-        <!-- readlists -->
-        <ul class="col-4 px-2 nav flex-column align-items-start">
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> novedades </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> mix verano </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> recomendado </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> crítica </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> lo más leído </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> todos los mixes </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> todos los eBooks </a>
-          </li>
-        </ul>
-        <!-- legal -->
-        <ul class="col-4 pl-4 pr-3 nav flex-column align-items-start">
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> aviso legal </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> condiciones suscripción </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> política de privacidad </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> política de cookies </a>
-          </li>
-          <li class="nav-item">
-            <a class="mr-2 mr-md-3 text-primary"
-               href="dist/html/mock.html"> reglas de moderación </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <!-- copyright -->
-    <section id="license"
-             class="py-2 text-center font-weight-normal text-secondary bg-ternary"> &#9400; Isaac Bejarano, 2020 -
-      Licencia GPLv3 </section>
-  </footer>
-  <!-- custom javascript -->
-  <script src="data/novedades.js"></script>
-  <script src="data/mixes.js"></script>
-  <script src="data/recomendado.js"></script>
-  <script src="data/critica.js"></script>
-  <script src="data/leido.js"></script>
-  <script src="data/todos.js"></script>
-  <script src="dist/js/carousel.component.js"></script>
-  <script src="dist/js/goto.laie.js"></script>
-  <script src="dist/js/searchbar.js"></script>
-  <!-- B4 => 1.jQuery, 2.Popper.js, 3.Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-          crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-          crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-          crossorigin="anonymous"></script>
-  <!-- NOTE:
+				<!-- FORM <@lg - search bar -->
+				<form
+					action="#"
+					method="get"
+					name="navbar_form_sm"
+					class="form-inline mt-4 my-lg-0 ml-lg-2 justify-content-center d-lg-none"
+				>
+					<!-- input-group -->
+					<div class="input-group input-group-lg">
+						<!-- prepend - lens -->
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fas fa-search"></i>
+							</span>
+						</div>
+						<!-- accessibility - label: screen readers -->
+						<label for="searchbar-sm" class="sr-only">searchbar</label>
+						<!-- input -->
+						<input
+							id="searchbar-sm"
+							name="navbar_searchbar"
+							class="form-control"
+							type="text"
+							placeholder="buscar título"
+							autocomplete="on"
+							autofocus
+						/>
+						<!-- append - submit button -->
+						<div class="input-group-append">
+							<button
+                id="btn-submit-sm"
+								class="btn btn-outline-secondary d-lg-none d-xl-block"
+								type="submit"
+							>
+								Buscar
+							</button>
+						</div>
+						<!-- tooltips -->
+						<div class="valid-tooltip p-0"></div>
+						<div class="invalid-tooltip p-0"></div>
+						<div
+							id="feedback-sm"
+							class="invalid-feedback border border-danger rounded-lg bg-papiro1-grad px-2 py-4"
+						></div>
+					</div>
+				</form>
+
+				<!-- FORM >@lg - search bar -->
+				<form
+					action="#"
+					method="get"
+					name="navbar_form_lg"
+					class="form-inline mt-4 my-lg-0 ml-lg-2 justify-content-center d-none d-lg-flex"
+				>
+					<!-- input-group -->
+					<div class="input-group input-group-sm">
+						<!-- prepend - lens -->
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fas fa-search"></i>
+							</span>
+						</div>
+						<!-- accessibility - label: screen readers -->
+						<label for="searchbar-lg" class="sr-only">searchbar</label>
+						<!-- input -->
+						<input
+							id="searchbar-lg"
+							name="navbar_searchbar"
+							class="form-control"
+							type="text"
+							placeholder="buscar título"
+							autocomplete="on"
+							autofocus
+						/>
+						<!-- append - submit button -->
+						<div class="input-group-append">
+							<button
+                id="btn-submit-lg"
+								class="btn btn-outline-secondary d-lg-none d-xl-block"
+								type="submit"
+							>
+								Buscar
+							</button>
+						</div>
+						<!-- tooltips -->
+						<div class="valid-tooltip p-0"></div>
+						<div class="invalid-tooltip p-0"></div>
+						<div
+							id="feedback-lg"
+							class="invalid-feedback border border-danger rounded-lg bg-papiro1 p-2"
+						></div>
+					</div>
+				</form>
+			</div>
+		</nav>
+
+		<!-- WRAPPER -->
+		<div id="wrapper" class="container-fluid">
+			<div class="row">
+				<!-- FRONTPAGE -->
+				<section
+					id="frontpage"
+					class="col-12 col-md-9 col-xl-8 order-md-1 p-0 bg-primary"
+				>
+					<!-- breadcrumb -->
+					<nav aria-label="breadcrumb">
+						<ol
+							class="breadcrumb py-1 pl-3 m-0 border-bottom border-ternary rounded-0 text-ternary"
+						>
+							<li class="breadcrumb-item active" aria-current="page">Inicio</li>
+							<li class="breadcrumb-item" aria-current="page"></li>
+						</ol>
+					</nav>
+					<!-- main -->
+					<main id="carousels" class="pt-0 bg-primary">
+						<!-- NOVEDADES / B4-carousel --reactive-->
+						<section class="pt-4 bg-papiro1 text-ternary">
+							<h1 class="display-4 text-center font-weight-lighter">novedades</h1>
+							<div
+								id="carousel1"
+								data-ride="carousel"
+								class="carousel slide bg-papiro2-grad"
+								data-img-width="150"
+								data-img-class="d-block mx-auto my-5 pb-5"
+								data-caption-class="carousel-caption text-primary pb-0"
+							></div>
+						</section>
+						<!-- MIXES / B4-carousel --reactive-->
+						<section class="pt-4 bg-papiro1 text-ternary">
+							<h1 class="display-4 text-center font-weight-lighter">mix verano</h1>
+							<div
+								id="carousel2"
+								data-ride="carousel"
+								class="carousel slide bg-papiro2-grad"
+								data-img-width="150"
+								data-img-class="d-block mx-auto my-5 pb-5"
+								data-caption-class="carousel-caption text-primary pb-0"
+							></div>
+						</section>
+						<!-- RECOMENDADO / B4-carousel --reactive-->
+						<section class="pt-4 bg-papiro1 text-ternary">
+							<h1 class="display-4 text-center font-weight-lighter">recomendado</h1>
+							<div
+								id="carousel3"
+								data-ride="carousel"
+								class="carousel slide bg-papiro2-grad"
+								data-img-width="150"
+								data-img-class="d-block mx-auto my-5 pb-5"
+								data-caption-class="carousel-caption text-primary pb-0"
+							></div>
+						</section>
+						<!-- CRÍTICA / B4-carousel --reactive-->
+						<section class="pt-4 bg-papiro1 text-ternary">
+							<h1 class="display-4 text-center font-weight-lighter">crítica</h1>
+							<div
+								id="carousel4"
+								data-ride="carousel"
+								class="carousel slide bg-papiro2-grad"
+								data-img-width="150"
+								data-img-class="d-block mx-auto my-5 pb-5"
+								data-caption-class="carousel-caption text-primary pb-0"
+							></div>
+						</section>
+						<!-- LO MáS LEÍDO / B4-carousel --reactive-->
+						<section class="pt-4 bg-papiro1 text-ternary">
+							<h1 class="display-4 text-center font-weight-lighter">lo más leído</h1>
+							<div
+								id="carousel5"
+								data-ride="carousel"
+								class="carousel slide bg-papiro2-grad"
+								data-img-width="150"
+								data-img-class="d-block mx-auto my-5 pb-5"
+								data-caption-class="carousel-caption text-primary pb-0"
+							></div>
+						</section>
+					</main>
+				</section>
+				<!-- BIBLIOLISTS -->
+				<section
+					id="bibliolists"
+					class="col-12 col-md-3 col-xl-2 p-3 pt-4 border border-left-0 border-ternary text-ternary bg-secondary-grad"
+				>
+					<!-- tu biblioteca -->
+					<section class="mb-4" id="biblio">
+						<h1 class="section-title font-weight-lighter text-papiro1">
+							mi biblioteca
+						</h1>
+						<ul class="list-group">
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									recomendado para ti
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									mixes
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									tu última lectura
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fas fa-podcast"></i>
+									<span class="pl-1 font-weight-lighter">podcast</span>
+								</a>
+							</li>
+						</ul>
+					</section>
+					<!-- readlists -->
+					<section class="mb-4" id="readlists">
+						<h1 class="section-title font-weight-lighter text-papiro1">readlists</h1>
+						<ul class="list-group">
+							<!-- gestionar -->
+							<li
+								class="list-group-item text-left bg-secondary-dark-grad text-papiro2 pt-2 pb-1"
+							>
+								gestionar
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="far fa-eye-slash"></i>
+									<span class="pl-1 font-weight-lighter">crear lista privada</span>
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fa fa-plus"></i>
+									<span class="pl-1 font-weight-lighter">crear lista pública</span>
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="far fa-edit"></i>
+									<span class="pl-1 font-weight-lighter">editar</span>
+								</a>
+							</li>
+							<!-- my readlists -->
+							<li
+								class="list-group-item text-left bg-secondary-dark-grad text-papiro2 pt-2 pb-1"
+							>
+								mis readlists
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fa fa-list"></i>
+									<span class="pl-1 font-weight-lighter">misterio</span>
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fa fa-list"></i>
+									<span class="pl-1 font-weight-lighter">cuentos y poemas</span>
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fa fa-list"></i>
+									<span class="pl-1 font-weight-lighter">vacaciones 2020</span>
+								</a>
+							</li>
+							<li class="list-group-item bg-secondary text-ternary">
+								<a class="mr-2 mr-md-3 text-ternary" href="dist/html/mock.html">
+									<i class="fa fa-list"></i>
+									<span class="pl-1 font-weight-lighter">syfy</span>
+								</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<!-- FRIENDS -->
+				<section
+					id="friends"
+					class="col-12 col-md-12 col-xl-2 order-md-1 p-3 pt-4 border border-right-0 border-ternary text-ternary bg-secondary-grad"
+				>
+					<h1 class="section-title font-weight-lighter text-papiro1">amistades</h1>
+					<ul class="d-flex flex-row d-xl-block list-group">
+						<!-- visible @xs -->
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img
+										class="card-img-top"
+										src="data/img/emily_blunt.jpg"
+										alt="emily_blunt"
+									/>
+									<div class="card-body text-left">
+										<h4 class="card-title">Emily Blunt</h4>
+										<p class="card-text">está leyendo "All You Need Is Kill"</p>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img class="card-img-top" src="data/img/johnny_5.jpg" alt="johnny_5" />
+									<div class="card-body text-left">
+										<h4 class="card-title">Johnny 5</h4>
+										<p class="card-text">
+											está leyendo "Sueñan Los Androides Con Ovejas Eléctricas?"
+										</p>
+									</div>
+								</div>
+							</a>
+						</li>
+						<!-- visible @sm -->
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img
+										class="card-img-top"
+										src="data/img/jeff_goldblum.jpg"
+										alt="jeff_goldblum"
+									/>
+									<div class="card-body text-left">
+										<h4 class="card-title">Jeff Goldblum</h4>
+										<p class="card-text">está leyendo "El Món Perdut"</p>
+									</div>
+								</div>
+							</a>
+						</li>
+						<!-- visible @md -->
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img
+										class="card-img-top"
+										src="data/img/hitler.jpg"
+										alt="emily_blunt"
+									/>
+									<div class="card-body text-left">
+										<h4 class="card-title">Adolf Hitler</h4>
+										<p class="card-text">está leyendo "Controla la teva Ira"</p>
+									</div>
+								</div>
+							</a>
+						</li>
+						<!-- visible @lg -->
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img class="card-img-top" src="data/img/gandhi.jpg" alt="johnny_5" />
+									<div class="card-body text-left">
+										<h4 class="card-title">Mahatma Gandhi</h4>
+										<p class="card-text">está leyendo "The Art of War"</p>
+									</div>
+								</div>
+							</a>
+						</li>
+						<!-- xl -->
+						<li class="list-group-item bg-secondary px-2 p-xl-1">
+							<a class="m-0 text-ternary" href="dist/html/mock.html">
+								<div class="card bg-ternary text-secondary">
+									<img
+										class="card-img-top"
+										src="data/img/jessica_rabbit.png"
+										alt="jeff_goldblum"
+									/>
+									<div class="card-body text-left">
+										<h4 class="card-title">Jessica Rabbit</h4>
+										<p class="card-text">está leyendo "Quiero ser Youtuber"</p>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<footer class="pt-4 bg-secondary font-weight-lighter">
+			<!-- net links -->
+			<section class="container-md">
+				<div class="row pb-4">
+					<!-- services -->
+					<ul class="col-4 pl-4 pr-2 nav flex-column align-items-start">
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">ayuda</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								quiero publicar
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								asistencia literaria
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="gotobookshop" href="https://www.laie.es/es/" target="_blank">
+								<img
+									id="footer_logo_laie"
+									src="dist/img/laie.svg"
+									alt="logo librería Laie"
+								/>
+							</a>
+						</li>
+					</ul>
+					<!-- readlists -->
+					<ul class="col-4 px-2 nav flex-column align-items-start">
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								novedades
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								mix verano
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								recomendado
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								crítica
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								lo más leído
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								todos los mixes
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								todos los eBooks
+							</a>
+						</li>
+					</ul>
+					<!-- legal -->
+					<ul class="col-4 pl-4 pr-3 nav flex-column align-items-start">
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								aviso legal
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								condiciones suscripción
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								política de privacidad
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								política de cookies
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="mr-2 mr-md-3 text-primary" href="dist/html/mock.html">
+								reglas de moderación
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- copyright -->
+			<section
+				id="license"
+				class="py-2 text-center font-weight-normal text-secondary bg-ternary"
+			>
+				&#9400; Isaac Bejarano, 2020 - Licencia GPLv3
+			</section>
+		</footer>
+		<!-- custom javascript -->
+		<script src="data/novedades.js"></script>
+		<script src="data/mixes.js"></script>
+		<script src="data/recomendado.js"></script>
+		<script src="data/critica.js"></script>
+		<script src="data/leido.js"></script>
+		<script src="data/todos.js"></script>
+		<script src="dist/js/carousel.component.js"></script>
+		<script src="dist/js/goto.laie.js"></script>
+		<script src="dist/js/searchbar.js"></script>
+		<!-- B4 => 1.jQuery, 2.Popper.js, 3.Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"
+		></script>
+		<!-- NOTE:
     (bootstrap.bundle.js || bootstrap.bundle.min.js) include Popper, but not jQuery.
     (bootstrap.js || bootstrap.min.js) include only Bootstrap -->
-  <!-- hamburger cusotm FX -->
-</body>
-
+		<!-- hamburger cusotm FX -->
+	</body>
 </html>

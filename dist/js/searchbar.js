@@ -1,29 +1,49 @@
 // DOM refs
-// 1. <form #searchbar>
-// 2. <form #searchbar><input>
+const navbarFormSM = document.forms["navbar_form_sm"];
+const navbarFormLG = document.forms["navbar_form_lg"];
+const searchbarSM = navbarFormSM.elements["navbar_searchbar"]; // <input>
+const searchbarLG = navbarFormLG.elements["navbar_searchbar"]; // <input>
 
 // LISTENERS
-searchbar.addEventListener("submit", validateSearchbarLogic); // useCapture bubble
-searchbarInput.addEventListener("input", validateSearchbarInputStyle); // useCapture bubble
+searchbarSM.addEventListener("keyup", function () {
+	validateInput(this); // keyup / user may press enter, with no value
+});
+searchbarLG.addEventListener("keyup", function () {
+	validateInput(this); // keyup / user may press enter, with no value
+});
+navbarFormSM.addEventListener("submit", validateBeforeSubmit); // submit form_lg
+navbarFormLG.addEventListener("submit", validateBeforeSubmit); // submit form_lg
 
-// VALIDATION --style
-function validateSearchbarInputStyle() {
-	searchbarInput.value.length <= 3
-		? (searchbarInput.classList.remove("is-valid"),
-		  searchbarInput.classList.add("is-invalid"))
-		: (searchbarInput.classList.remove("is-invalid"),
-		  searchbarInput.classList.add("is-valid"));
+/* VALIDATION */
+// Form Element -> CSS + Validity State
+function validateInput(ref) {
+	const feedback = document.querySelector(`#${ref.id} ~ div.invalid-feedback`);
+	let msgError = ""; // ~ valid
+
+	// 1. FORM ELEMENT -> search >= 3 chars
+	if (ref.value.length < 3) msgError = "Busca palabras de mínimo 3 letras";
+
+	// 2. FORM ELEMENT -> CSS
+	// feedback msg
+	feedback.textContent = msgError;
+	// tooltip
+	ref.classList.remove(msgError === "" ? "is-invalid" : "is-valid");
+	ref.classList.add(msgError === "" ? "is-valid" : "is-invalid");
+
+	// 3. FORM ELEMENT -> Validity State: boolean
+	return msgError === "" ? true : false;
 }
 
-// VALIDATION --logic
-function validateSearchbarLogic(e) {
-	searchbarInput.value.length <= 3
-		? (e.stopPropagation(),
-		  e.preventDefault(),
-		  searchbarInput.classList.add("is-invalid"))
-		: (alert(
-				'Funcionalidad "Buscar Título" en desarrollo. \nDisponible próximamente ;)'
-		  ),
-		  searchbarInput.classList.remove("is-valid"),
-		  (searchbarInput.value = ""));
+// Form -> validate
+function validateBeforeSubmit(e) {
+	let validForm = false; // default
+
+	// input state update
+	if (e.target.name === "navbar_form_sm") validForm = validateInput(searchbarSM);
+	if (e.target.name === "navbar_form_lg") validForm = validateInput(searchbarLG);
+
+	// submit
+	!validForm
+		? (e.stopPropagation(), e.preventDefault())
+		: alert('Funcionalidad "Buscar" en desarrollo. Disponible próximamente.');
 }

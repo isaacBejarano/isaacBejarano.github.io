@@ -1,111 +1,125 @@
 /* DOM refs */
-// 1. <form #loginform>
-// 2. <input #email>
-// 3. <input #password>
-// 4. <input #confirmar>
-// 5. <div #eye1>
-// 6. <div #eye2>
-// 7. <input #provincia>
+const signupForm = document.forms["registro_form"]; // []
+const signupEmail = signupForm.elements["registro_email"];
+const signupPassword = signupForm.elements["registro_password"];
+const signupPasswordConfirm = signupForm.elements["registro_password_confirm"];
+const signupProvincia = signupForm.elements["registro_provincia"];
+const eyeIcons = document.querySelectorAll(".eye span i"); // []
 
 /* GLOBALS */
-const regexEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
-const regexPassword = new RegExp(/^([\w!-\/:-@\[-`{-~ªº€·¿~¬çÇ¨´]){9,}/); // alphanumeric case insensitive with length >= 9
-let eyeState = [false, false];
+let eye1State = false;
+let eye2State = false;
+showPassword(eyeIcons[0]); // default open
+showPassword(eyeIcons[1]); // default open
 
 /* LISTENERS */
-loginform.addEventListener("submit", validateFormSubmit); // --logic
-email.addEventListener("blur", () => validateEmail(email)); // --style
-password.addEventListener("blur", () => validatePassword(password)); // --style
-confirmar.addEventListener("blur", () => validateConfirmar(confirmar)); // --style
-eye1.addEventListener("click", () => showPassword(eye1)); // --utility
-eye2.addEventListener("click", () => showPassword(eye2)); // --utility
-provincia.addEventListener("blur", () => validateProvincia(provincia)); // --style
+signupEmail.addEventListener("blur", function () {
+	validateInput(this);
+});
+signupPassword.addEventListener("blur", function () {
+	validateInput(this);
+});
+signupPasswordConfirm.addEventListener("blur", function () {
+	validateInput(this);
+});
+signupProvincia.addEventListener("blur", function () {
+	validateInput(this);
+});
+for (eyeIcon of eyeIcons) {
+	eyeIcon.addEventListener("click", function () {
+		showPassword(this);
+	});
+}
+signupForm.addEventListener("submit", validateBeforeSubmit);
 
-/* VALIDATION --style */
+/* VALIDATION */
+// Form Element -> CSS + Validity State
+function validateInput(ref) {
+	const feedback = document.querySelector(
+		`[name = ${ref.name}] ~ div.invalid-feedback`
+	);
+	let msgError = ""; // default valid
+	let regex = /^(?!x)x$/; // default impossible -> regex.test(ref.value) => false
 
-// <input #email>
-function validateEmail(ref) {
-	toolipInput(ref, ref.value.length === 0); // compulsory
-	testRegex(regexEmail, ref); // RegExp email format
+	// 1. FORM ELEMENTS -> update regex + feedback msg
+	if (ref.name === "registro_email") {
+		// email -> like user@email.co.uk
+		regex = RegExp(
+			/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+		);
+		msgError =
+			"El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
+	}
+	if (ref.name === "registro_password") {
+		// password -> case insensitive && length >= 9
+		regex = RegExp(/^([\w!-\/:-@\[-`{-~ªº€·¿~¬çÇ¨´]){9,}/);
+		msgError = "La contraseña es obligatoria y debe tener mínimo 9 carácteres";
+	}
+	if (ref.name === "registro_password_confirm") {
+		// confirm -> matches password
+		if (signupPassword.value === ref.value) regex = /\w/; // match all strings
+		msgError = 'El campo "Contraseña" y "Confirmar Contraseña" deben coincidir';
+	}
+	if (ref.name === "registro_provincia") {
+		// province -> select option
+		if (ref.value > 0) regex = /\w/; // match all strings
+		msgError = "La provinvia es obligatoria. Selecciona la tuya";
+	}
+	// if(ref.name ===...) etc...
+
+	// 2. FORM ELEMENT -> CSS
+	// feedback msg
+	feedback.textContent = regex.test(ref.value) ? "" : msgError;
+
+	// tooltip
+	ref.classList.remove(regex.test(ref.value) ? "is-invalid" : "is-valid");
+	ref.classList.add(regex.test(ref.value) ? "is-valid" : "is-invalid");
+
+	// 3. FORM ELEMENT -> Validity State: boolean
+	return regex.test(ref.value);
 }
 
-// <input #password>
-function validatePassword(ref) {
-	toolipInput(ref, ref.value.length === 0); // compulsory
-	testRegex(regexPassword, ref); // RegExp password length
-}
+// Form -> validate
+function validateBeforeSubmit(e) {
+	let validFormElements = 0;
+	const totalFormElements = signupForm.elements.length - 1; // exclude "submit" input/button
 
-// <input #confirmar>
-function validateConfirmar(ref) {
-	toolipInput(ref, ref.value !== password.value); // compulsory
-}
+	// input state update
+	validFormElements = validateInput(signupEmail) ? 1 : 0;
+	validFormElements += validateInput(signupPassword) ? 1 : 0;
+	validFormElements += validateInput(signupPasswordConfirm) ? 1 : 0;
+	validFormElements += validateInput(signupProvincia) ? 1 : 0;
+	// validFormElements += etc...
 
-function validateProvincia(ref) {
-	toolipInput(ref, +ref.value === 0); // compulsory
-}
-
-/* VALIDATION --logic */
-
-// <form #loginform>
-function validateFormSubmit(e) {
-	validateEmail(email); // <input #email> --style
-	validatePassword(password); // <input #password> --style
-	validateConfirmar(confirmar); // <input #confirmar> --style
-	validateProvincia(provincia); // <input #provincia> --style
-
-	// --logic
-	email.value.length === 0 ||
-	!regexEmail.test(email.value) ||
-	password.value.length === 0 ||
-	!regexPassword.test(password.value) ||
-	password.value !== confirmar.value ||
-	+provincia.value === 0 // parse int
-		? (e.stopPropagation(), e.preventDefault())
-		: (alert(`Funcionalidad "Abrir Sesión" en desarrollo.\
-        \nDisponible próximamente ;)`),
-		  true);
+	// submit
+	validFormElements !== totalFormElements ?
+		(e.stopPropagation(), e.preventDefault()) :
+		alert('Funcionalidad "Registrarse" en desarrollo. Disponible próximamente.');
 }
 
 /* UTILITY */
+function showPassword(eyeIcon) {
+	let targetElement = {};
+	let eyeState = false; // scoped state
 
-// <div #eye1> || <div #eye2>
-function showPassword(eye) {
-	let eyeOpen = document.querySelector(`#${eye.id} span i:nth-child(1)`);
-	let eyeClosed = document.querySelector(`#${eye.id} span i:nth-child(2)`);
+	// check eyeIcon index
+	if (eyeIcon === eyeIcons[0]) {
+		eye1State = !eye1State; // toggle eye state
+		eyeState = eye1State; // scoped <- global
+		targetElement = signupPassword; // {} ref
+	}
+	if (eyeIcon === eyeIcons[1]) {
+		eye2State = !eye2State; // toggle eye state
+		eyeState = eye2State; // scoped <- global
+		targetElement = signupPasswordConfirm; // {} ref
+	}
 
-	// toggle eye state
-	if (eye.id === "eye1") {
-		eyeState[0] = !eyeState[0]; // toggle eye1 state
-		eyeState[0]
-			? eyeToggle(eyeClosed, eyeOpen, "text", password)
-			: eyeToggle(eyeOpen, eyeClosed, "password", password);
-	} else if (eye.id === "eye2") {
-		eyeState[1] = !eyeState[1]; // toggle eye2 state
-		eyeState[1]
-			? eyeToggle(eyeClosed, eyeOpen, "text", confirmar)
-			: eyeToggle(eyeOpen, eyeClosed, "password", confirmar);
-	} else console.warn("eyeState error");
-}
-
-/* AUXILIARY */
-
-// --utility
-function eyeToggle(eyeA, eyeB, type, id) {
-	eyeA.classList.remove("hide-eye");
-	eyeB.classList.add("hide-eye");
-	id.type = type; // <input #password> || <input #confirmar>
-}
-
-// --validation --stye
-function toolipInput(ref, condition) {
-	condition
-		? (ref.classList.remove("is-valid"), ref.classList.add("is-invalid"))
-		: ref.classList.remove("is-invalid");
-}
-
-function testRegex(regex, element) {
-	regex.test(element.value)
-		? ($(`#${element.id}`).tooltip("disable"),
-		  element.classList.add("is-valid"))
-		: $(`#${element.id}`).tooltip("show");
+	// toogle icon + input type
+	eyeState ?
+		((targetElement.type = "password"),
+			eyeIcon.classList.remove("fa-eye-slash"),
+			eyeIcon.classList.add("fa-eye")) :
+		((targetElement.type = "text"),
+			eyeIcon.classList.remove("fa-eye"),
+			eyeIcon.classList.add("fa-eye-slash"));
 }
