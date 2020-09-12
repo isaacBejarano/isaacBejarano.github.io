@@ -47,3 +47,9 @@ function validateBeforeSubmit(e) {
 		? (e.stopPropagation(), e.preventDefault())
 		: alert('Funcionalidad "Buscar" en desarrollo. Disponible próximamente.');
 }
+
+const person = {
+	first: "name",
+};
+
+console.log(person);
