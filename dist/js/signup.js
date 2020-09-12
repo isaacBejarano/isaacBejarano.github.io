@@ -43,8 +43,7 @@ function validateInput(ref) {
 	if (ref.name === "registro_email") {
 		// email -> like user@email.co.uk
 		regex = RegExp(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-		msgError =
-			"El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
+		msgError = "El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
 	}
 	if (ref.name === "registro_password") {
 		// password -> case insensitive && length >= 9
@@ -112,10 +111,6 @@ function showPassword(eyeIcon) {
 
 	// toogle icon + input type
 	eyeState
-		? ((targetElement.type = "password"),
-		  eyeIcon.classList.remove("fa-eye-slash"),
-		  eyeIcon.classList.add("fa-eye"))
-		: ((targetElement.type = "text"),
-		  eyeIcon.classList.remove("fa-eye"),
-		  eyeIcon.classList.add("fa-eye-slash"));
+		? ((targetElement.type = "password"), eyeIcon.classList.remove("fa-eye-slash"), eyeIcon.classList.add("fa-eye"))
+		: ((targetElement.type = "text"), eyeIcon.classList.remove("fa-eye"), eyeIcon.classList.add("fa-eye-slash"));
 }

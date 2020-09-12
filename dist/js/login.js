@@ -29,8 +29,7 @@ function validateInput(ref) {
 	if (ref.name === "abrir_email") {
 		// email -> like user@email.co.uk
 		regex = RegExp(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-		msgError =
-			"El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
+		msgError = "El correo electrónico debe seguir el formato correcto (ejemplo. micuenta@email.com)";
 	}
 	if (ref.name === "abrir_password") {
 		// password -> case insensitive && length >= 9
@@ -73,10 +72,6 @@ function showPassword() {
 
 	// toogle icon + input type
 	eyeState
-		? ((loginPassword.type = "password"),
-		  eyeIcon.classList.remove("fa-eye-slash"),
-		  eyeIcon.classList.add("fa-eye"))
-		: ((loginPassword.type = "text"),
-		  eyeIcon.classList.remove("fa-eye"),
-		  eyeIcon.classList.add("fa-eye-slash"));
+		? ((loginPassword.type = "password"), eyeIcon.classList.remove("fa-eye-slash"), eyeIcon.classList.add("fa-eye"))
+		: ((loginPassword.type = "text"), eyeIcon.classList.remove("fa-eye"), eyeIcon.classList.add("fa-eye-slash"));
 }
