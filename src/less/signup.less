@@ -27,16 +27,17 @@ div.btn a:hover {
 	color: @ternary;
 	background-color: @papiro1;
 }
-#eye1,
-#eye2 {
-	cursor: pointer;
+.eye {
 	span {
 		&:hover {
 			color: @secondary;
 			background-color: @primary;
 		}
-		&:active {
-			color: @papiro3;
+		i {
+			cursor: pointer;
+			&:active {
+				color: @papiro3;
+			}
 		}
 	}
 }
